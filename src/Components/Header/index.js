@@ -9,6 +9,10 @@ function AppHeader() {
         navigate(`/${item.key}`);
     };
 
+    const onLoginIconClick = () => {
+        navigate("/login")
+    };
+
     return (
         <div className="appHeader">
             <Menu
@@ -43,8 +47,13 @@ function AppHeader() {
                 },
             ]}
             />
+            
             <Typography.Title className="title">SimplyStay!</Typography.Title>
-            <UserOutlined className="loginIcon"></UserOutlined>
+
+            <UserOutlined
+            className="loginIcon"
+            onClick={onLoginIconClick}
+            ></UserOutlined>
         </div>
     );
 }

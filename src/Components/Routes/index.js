@@ -4,6 +4,7 @@ import Search from '../../Pages/Search';
 import Calculator from '../../Pages/Calculator';
 import Compare from '../../Pages/Compare';
 import Favourites from '../../Pages/Favourites';
+import Login from '../../Pages/Login';
 
 function AppRoutes() {
     return (
@@ -13,6 +14,7 @@ function AppRoutes() {
         <Route path="/calculator" element={<Calculator />}></Route>
         <Route path="/compare" element={<Compare />}></Route>
         <Route path="/favourites" element={<Favourites />}></Route>
+        <Route path="/login" element={<Login />}></Route>
     </Routes>
     );
 }
