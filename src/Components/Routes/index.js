@@ -1,22 +1,22 @@
-import {Routes, Route} from 'react-router-dom';
-import Home from '../../Pages/Home';
-import Search from '../../Pages/Search';
-import Calculator from '../../Pages/Calculator';
-import Compare from '../../Pages/Compare';
-import Favourites from '../../Pages/Favourites';
-import Login from '../../Pages/Login';
+import { Routes, Route } from "react-router-dom";
+import Home from "../../Pages/Home";
+import Search from "../../Pages/Search";
+import Calculator from "../../Pages/Calculator";
+import Compare from "../../Pages/Compare";
+import Favourites from "../../Pages/Favourites";
+import Login from "../../Pages/Login";
 
 function AppRoutes() {
-    return (
+  return (
     <Routes>
-        <Route path = "/" element={<Home />}></Route>
-        <Route path="/search" element={<Search />}></Route>
-        <Route path="/calculator" element={<Calculator />}></Route>
-        <Route path="/compare" element={<Compare />}></Route>
-        <Route path="/favourites" element={<Favourites />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/search" element={<Search />}></Route>
+      <Route path="/calculator" element={<Calculator />}></Route>
+      <Route path="/compare" element={<Compare />}></Route>
+      <Route path="/favourites" element={<Favourites />}></Route>
+      <Route path="/login" element={<Login />}></Route>
     </Routes>
-    );
+  );
 }
 
 export default AppRoutes;
