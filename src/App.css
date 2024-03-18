@@ -37,3 +37,20 @@
   background-color: lightgrey;
   text-align: center;
 }
+
+.background {
+  background: url('Images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 5000px;
+  height: 605px;
+}
+
+.homeSlogan {
+  margin-left: 100px;
+}
+
+.homeCaption {
+  margin-left: 100px;
+  width: 800px;
+}
