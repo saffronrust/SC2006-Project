@@ -106,3 +106,20 @@
   border: 1px solid grey;
   padding-left: 8px;
 }
+
+.background {
+  background: url('Images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.homeSlogan {
+  margin-left: 100px;
+}
+
+.homeCaption {
+  margin-left: 100px;
+  width: 800px;
+}
