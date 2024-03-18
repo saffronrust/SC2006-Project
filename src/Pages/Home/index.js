@@ -18,6 +18,7 @@ function Home() {
                 </Title>
             </div>
         </div>
+        
     )
 }
 
