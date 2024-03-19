@@ -1,5 +1,11 @@
+import SearchBox from "../../Components/SearchBox";
+
 function Search() {
-    return <div>Search</div>
+    return (
+        <div className="searchbox">
+            <SearchBox/>
+        </div>
+        )
 }
 
 export default Search;
