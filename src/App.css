@@ -161,11 +161,11 @@
 }
 
 .searchbox {
-  position: absolute;
-  left: 100px;
+  position: relative;
   top: 100px;
-  /* margin-left: 100px;
-  margin-top: 100px; */
+  /* left: 100px; */
+  margin-left: 100px;
+  /* margin-top: 100px; */
   /* had to change this if not all the other elements 
   on this page will be shifted by the margin */
 }
