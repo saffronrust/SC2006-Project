@@ -1,5 +1,14 @@
+import ComparisonLayout from "../../Components/ComparisonLayout";
+
 function Compare() {
-    return <div>Compare</div>
+    return (
+        <div className="background">
+            <div className="translucentbox">
+                <br />
+                <ComparisonLayout />
+            </div>
+        </div>
+    )
 }
 
 export default Compare;

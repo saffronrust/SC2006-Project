@@ -51,11 +51,39 @@
   height: 100vh;
 }
 
+.topContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100vh;
+}
+
 .titleContainer {
   display: flex;
   flex-direction: column;
   font-size: 64px;
   font-weight: bolder;
+  align-items: center;
+  justify-content: center;
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 10; */
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: Light;
   align-items: center;
   justify-content: center;
 }
@@ -115,6 +143,14 @@
   height: 100vh;
 }
 
+.translucentbox {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* opacity: 0.4; */
+  width: 100vw;
+  height: 100vh;
+  /* z-index: 0; */
+}
+
 .homeSlogan {
   margin-left: 100px;
 }
@@ -125,6 +161,11 @@
 }
 
 .searchbox {
-  margin-left: 100px;
-  margin-top: 100px;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  /* margin-left: 100px;
+  margin-top: 100px; */
+  /* had to change this if not all the other elements 
+  on this page will be shifted by the margin */
 }
