@@ -5,6 +5,7 @@ import Calculator from "../../Pages/Calculator";
 import Compare from "../../Pages/Compare";
 import Favourites from "../../Pages/Favourites";
 import Login from "../../Pages/Login";
+import UserAccount from "../../Pages/UserAccount";
 
 function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ function AppRoutes() {
       <Route path="/compare" element={<Compare />}></Route>
       <Route path="/favourites" element={<Favourites />}></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/useraccount" element={<UserAccount />}></Route>
     </Routes>
   );
 }

@@ -18,7 +18,7 @@
 }
 
 .title {
-  margin-right: 500px;
+  margin-right: 625px;
 }
 
 .loginIcon {
@@ -27,11 +27,11 @@
 }
 
 /* had to remove this if not the login div would not be centered */
-/* .pageContent {
+ .pageContent {
   display: flex;
   flex: 1;
   overflow-y: auto;
-} */
+} 
 
 /* used fixed position so footer will always be at the bottom */
 .appFooter {
@@ -112,7 +112,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 100vh;
+  height: 630px;
 }
 
 .homeSlogan {
