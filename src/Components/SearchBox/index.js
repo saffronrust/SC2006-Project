@@ -6,8 +6,41 @@ import {
 } from 'antd';
 import Typography from 'antd/es/typography/Typography';
 import { SearchOutlined } from '@ant-design/icons';
+import { useState, useEffect } from 'react';
+import { db } from '../../firebase';
+import { getDocs, collection } from 'firebase/firestore';
 
 function SearchBox() {
+
+  const [maxprice, setMaxPrice] = useState(0);
+  const [location, setLocation] = useState("");
+  const [roomtype, setRoomType] = useState("");
+  const [flats, setFlats] = useState([]);
+  const [filteredflats, setFilteredFlats] = useState(flats);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "flats"));
+      const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setFlats(data);
+    };
+
+    fetchData();
+  }, []);
+
+  const handleSubmit = (values) => {
+    const result = []
+    for (let i = 0; i < flats.length; i++) {
+        for (let j = 0; j < flats[i].roomtype.length; j++) {
+      if (flats[i].maxprice <= values.maxprice && flats[i].location === values.location && flats[i].roomtype[j] === values.roomtype)
+      {
+        result.push(flats[i]);
+      }
+    }
+  }
+    setFilteredFlats(result);
+  };
+
   return (
     <>
     <Typography.Title level={2}>Search for a BTO</Typography.Title>
@@ -22,10 +55,12 @@ function SearchBox() {
         style={{
           maxWidth: 600,
         }}
+        onFinish={handleSubmit}
       >
         <Form.Item
-          label="Max Price (SGD)"
-          name= {"maxPrice"}
+          label="Max Price"
+          name= "maxprice"
+          value={maxprice}
           rules={[
             {
               type: 'integer',
@@ -33,14 +68,25 @@ function SearchBox() {
               max: 1000000,
               message: 'Please input a valid price.',
             },
-          ]}>
+          ]}
+          onValuesChange = {(e) => setMaxPrice(e.target.value)}
+          >
           <InputNumber
-          style={{ width: 150 }}>
+          style={{ width: 150 }}
+          placeholder='In SGD'
+          >
           </InputNumber>
         </Form.Item>
-        <Form.Item label="Location">
+        <Form.Item
+        label="Location"
+        name="location"
+        value= {location}
+        onValuesChange={(e) => setLocation(e.target.value)}
+        >
           <Select
-          style={{ width: 150 }}>
+          style={{ width: 150 }}
+          placeholder="Punggol"
+          >
             <Select.Option value="punggol">Punggol</Select.Option>
             <Select.Option value="hougang">Hougang</Select.Option>
             <Select.Option value="woodlands">Woodlands</Select.Option>
@@ -49,35 +95,39 @@ function SearchBox() {
             <Select.Option value="cck">Choa Chu Kang</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Housing Type">
+        <Form.Item
+        label="Room Type"
+        name="roomtype"
+        value= {roomtype}
+        onValuesChange= {(e) => setRoomType(e.target.value)}
+        >
           <Select
-          style={{ width: 150 }}>
-            <Select.Option value="tworoomflexi">Two Room Flexi</Select.Option>
-            <Select.Option value="threeroom">Three Room</Select.Option>
-            <Select.Option value="fourroom">Four Room</Select.Option>
-            <Select.Option value="fiveroom">Five Room</Select.Option>
+          style={{ width: 150 }}
+          placeholder="3 Room"
+          >
+            <Select.Option value="2roomflexi">Two Room Flexi</Select.Option>
+            <Select.Option value="3room">Three Room</Select.Option>
+            <Select.Option value="4room">Four Room</Select.Option>
+            <Select.Option value="5room">Five Room</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item
-        label="Min Floor Area (square metres)"
-        name = "minfloorarea"
-        rules={[
-          {
-            type: 'integer',
-            min: 1,
-            max: 100,
-            message: 'Please input a valid floor area.',
-          },
-        ]}>
-        <InputNumber
-          style={{ width: 150 }}>
-          </InputNumber>
-        </Form.Item>
-        <Button type="primary" icon={<SearchOutlined />}>
+        <Button type="primary"
+        icon={<SearchOutlined />}
+        htmlType="submit">
             Search
         </Button>
       </Form>
+      <div>
+        {filteredflats.map((flat) => (
+          <div key={flat.id}>
+          <h2> Flats name: {flat.id}</h2>
+          <p>{flat.location}</p>
+          <p>{flat.maxprice}</p>
+        </div>
+        ))}
+      </div>
     </>
   );
 };
 export default SearchBox;
+

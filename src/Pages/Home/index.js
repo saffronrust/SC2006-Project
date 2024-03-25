@@ -46,7 +46,6 @@ function Home() {
                 <Button onClick={() => navigate("/search")}>Begin Your Search!</Button>
             </div>
         </div>
-        
     )
 }
 
