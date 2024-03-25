@@ -23,7 +23,17 @@ function SearchBox() {
           maxWidth: 600,
         }}
       >
-        <Form.Item label="Max Price (SGD)">
+        <Form.Item
+          label="Max Price (SGD)"
+          name= {"maxPrice"}
+          rules={[
+            {
+              type: 'integer',
+              min: 1,
+              max: 1000000,
+              message: 'Please input a valid price.',
+            },
+          ]}>
           <InputNumber
           style={{ width: 150 }}>
           </InputNumber>
@@ -48,7 +58,17 @@ function SearchBox() {
             <Select.Option value="fiveroom">Five Room</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Min Floor Area (square metres)">
+        <Form.Item
+        label="Min Floor Area (square metres)"
+        name = "minfloorarea"
+        rules={[
+          {
+            type: 'integer',
+            min: 1,
+            max: 100,
+            message: 'Please input a valid floor area.',
+          },
+        ]}>
         <InputNumber
           style={{ width: 150 }}>
           </InputNumber>

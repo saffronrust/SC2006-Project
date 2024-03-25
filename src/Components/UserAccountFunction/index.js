@@ -41,7 +41,7 @@ function UserAccountFunction() {
       <Button
       type="primary"
       size="large"
-      className="logout"
+      className="logoutbutton"
       danger onClick={logout}>
         Logout
       </Button>
