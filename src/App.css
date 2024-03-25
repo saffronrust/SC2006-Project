@@ -170,3 +170,9 @@
   /* had to change this if not all the other elements 
   on this page will be shifted by the margin */
 }
+
+.horizontalContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}

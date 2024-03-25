@@ -19,6 +19,7 @@ function AppRoutes() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/useraccount" element={<UserAccount />}></Route>
       <Route path="/results" element={<Results />}></Route>
+      <Route path="/test" element={<Test />}></Route>
     </Routes>
   );
 }

@@ -45,6 +45,10 @@ function AppHeader() {
                     icon: <HeartFilled/>,
                     key: "favourites",
                 },
+                {
+                    label: "Test",
+                    key: "test",
+                },
             ]}
             />
             
