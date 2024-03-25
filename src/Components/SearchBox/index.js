@@ -11,7 +11,6 @@ import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { query, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import MapDisplay from './MapBox';
 
 function SearchBox() {
 
@@ -33,6 +32,9 @@ function SearchBox() {
         maxprice: flat.maxprice,
         minprice: flat.minprice,
         roomtype: flat.roomtype,
+        lat: flat.lat,
+        lng: flat.lng,
+        Street: flat.Street
       });
     }
   }

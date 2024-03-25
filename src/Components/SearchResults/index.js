@@ -3,6 +3,7 @@ import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { Card, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import MapDisplay from './MapBox';
 
 function SearchResults() {
 
@@ -25,6 +26,8 @@ function SearchResults() {
         <Card.Grid
         title="Search Results"
         style={{
+            display:'flex',
+            justifyContent:'center',
             width: '100%',
             textAlign: 'center',
             fontSize: '20px'}}
@@ -42,6 +45,7 @@ function SearchResults() {
                         ))}
                         </p>
                     <p>Nearest MRT Station Time: {flat.nearestmrtstation} minutes</p>
+                    <p>{MapDisplay(flat.lat,flat.lng,flat.Street)}</p>
                 </Card>
             ))}
         </Card.Grid>

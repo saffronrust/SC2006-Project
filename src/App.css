@@ -141,14 +141,16 @@
   background-repeat: no-repeat;
   width: 100vw;
   /* overflow: hidden; */
-  overflow: scroll;
+  /* overflow: scroll; 
+  Moved this down to translucent box as it works better*/
 }
 
 .translucentbox {
   background-color: rgba(255, 255, 255, 0.7);
   /* opacity: 0.4; */
   width: 100vw;
-  height: 100vh;
+  height:100%;
+  overflow: scroll;
   /* z-index: 0; */
 }
 

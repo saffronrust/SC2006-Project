@@ -1,4 +1,4 @@
-import SearchResults from "../../Components/SearchResults";
+import SearchResults from "../../Components/SearchResults/index";
 
 function Results() {
     return (
