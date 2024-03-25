@@ -9,6 +9,8 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
+import { query, addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBox() {
 
@@ -17,6 +19,26 @@ function SearchBox() {
   const [roomtype, setRoomType] = useState("");
   const [flats, setFlats] = useState([]);
   const [filteredflats, setFilteredFlats] = useState(flats);
+  const navigate = useNavigate();
+
+  function addResultsToFirebase() {
+    for (let i = 0; i < filteredflats.length; i++) {
+      const flat = filteredflats[i];
+      addDoc(collection(db, "results"), {
+        id: flat.id,
+        name: flat.name,
+        location: flat.location,
+        nearestmrtstation: flat.nearestmrtstation,
+        maxprice: flat.maxprice,
+        minprice: flat.minprice,
+        roomtype: flat.roomtype,
+      });
+    }
+  }
+
+  useEffect(() => {
+    addResultsToFirebase();
+  }, [filteredflats]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +50,7 @@ function SearchBox() {
     fetchData();
   }, []);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     const result = []
     for (let i = 0; i < flats.length; i++) {
         for (let j = 0; j < flats[i].roomtype.length; j++) {
@@ -39,7 +61,11 @@ function SearchBox() {
     }
   }
     setFilteredFlats(result);
-  };
+    addResultsToFirebase();
+    setTimeout(() => {
+      navigate('/results');
+    }, 100);
+  }
 
   return (
     <>
@@ -68,6 +94,10 @@ function SearchBox() {
               max: 1000000,
               message: 'Please input a valid price.',
             },
+            {
+              required: true,
+              message: 'Please input a price.',
+            }
           ]}
           onValuesChange = {(e) => setMaxPrice(e.target.value)}
           >
@@ -81,6 +111,12 @@ function SearchBox() {
         label="Location"
         name="location"
         value= {location}
+        rules={[
+          {
+            required: true,
+            message: 'Please input a location.',
+          }
+        ]}
         onValuesChange={(e) => setLocation(e.target.value)}
         >
           <Select
@@ -99,6 +135,12 @@ function SearchBox() {
         label="Room Type"
         name="roomtype"
         value= {roomtype}
+        rules={[
+          {
+            required: true,
+            message: 'Please input a housing type.',
+          }
+        ]}
         onValuesChange= {(e) => setRoomType(e.target.value)}
         >
           <Select
@@ -117,15 +159,6 @@ function SearchBox() {
             Search
         </Button>
       </Form>
-      <div>
-        {filteredflats.map((flat) => (
-          <div key={flat.id}>
-          <h2> Flats name: {flat.id}</h2>
-          <p>{flat.location}</p>
-          <p>{flat.maxprice}</p>
-        </div>
-        ))}
-      </div>
     </>
   );
 };

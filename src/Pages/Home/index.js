@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
-
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button } from "antd";
+import { doc, deleteDoc } from "firebase/firestore";
 
 function Home() {
 
@@ -19,15 +19,33 @@ function Home() {
         const doc = await getDocs(q);
         const data = doc.docs[0].data();
         setName(data.name);
+        await deleteDoc(doc(db, "results", "result.id"));
       } catch (err) {
         console.error(err);
       }
     };
+
     useEffect(() => {
         if (loading) return;
         if (!user) return navigate("/");
         fetchUserName();
       }, [user, loading]);
+
+    const removedatabase = async () => { 
+      try {
+        const q = query(collection(db, "results"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          deleteDoc(doc.ref);
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    useEffect(() => {
+      removedatabase();
+    }, []);
+    
     return (
         <div className="background">
             <div className="homeSlogan">
