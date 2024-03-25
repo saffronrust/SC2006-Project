@@ -63,6 +63,13 @@ function SearchBox() {
   }
     setFilteredFlats(result);
     addResultsToFirebase();
+    if (result.length === 0) {
+      {
+          alert("No results found. Please try again.");
+          return navigate("/");
+      }
+    }
+    
     setTimeout(() => {
       navigate('/results');
     }, 100);

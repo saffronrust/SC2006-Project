@@ -31,21 +31,6 @@ function Home() {
         fetchUserName();
       }, [user, loading]);
 
-    const removedatabase = async () => { 
-      try {
-        const q = query(collection(db, "results"));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          deleteDoc(doc.ref);
-        });
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    useEffect(() => {
-      removedatabase();
-    }, []);
-    
     return (
         <div className="background">
             <div className="homeSlogan">
