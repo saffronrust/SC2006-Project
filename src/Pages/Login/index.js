@@ -1,8 +1,16 @@
 import LoginFunction from "../../Components/LoginFunction";
 
 function Login() {
-  // return <div>Login</div>
-  return <LoginFunction />;
+  return (
+    <div className="background">
+      <div className="translucentbox">
+        <br />
+        <div className="login">
+            <LoginFunction />
+        </div>
+    </div>
+    </div>
+  )
 }
 
 export default Login;

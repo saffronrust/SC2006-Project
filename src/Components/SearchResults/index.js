@@ -19,6 +19,7 @@ function SearchResults() {
         fetchData();
       }, []);
 
+    // TODO: Make the cards spaced out more nicely
     return (
         <>
         <Card.Grid
@@ -33,10 +34,14 @@ function SearchResults() {
             {resultflats.map((flat) => (
                 <Card key={flat.id} title={flat.name}>
                     <p>Location: {flat.location}</p>
-                    <p>Nearest MRT Station: {flat.nearestmrtstation}</p>
                     <p>Max Price: {flat.maxprice}</p>
                     <p>Min Price: {flat.minprice}</p>
-                    <p>Room Type: {flat.roomtype}</p>
+                    <p>Room Type:
+                        {flat.roomtype.map((room) => (
+                            <p>{room}</p>
+                        ))}
+                        </p>
+                    <p>Nearest MRT Station Time: {flat.nearestmrtstation} minutes</p>
                 </Card>
             ))}
         </Card.Grid>

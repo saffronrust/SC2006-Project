@@ -122,12 +122,12 @@ function SearchBox() {
             style={{ width: 150 }}
             placeholder="Punggol"
             >
-              <Select.Option value="punggol">Punggol</Select.Option>
-              <Select.Option value="hougang">Hougang</Select.Option>
-              <Select.Option value="woodlands">Woodlands</Select.Option>
-              <Select.Option value="queenstown">Queenstown</Select.Option>
-              <Select.Option value="bedok">Bedok</Select.Option>
-              <Select.Option value="cck">Choa Chu Kang</Select.Option>
+              <Select.Option value="Punggol">Punggol</Select.Option>
+              <Select.Option value="Hougang">Hougang</Select.Option>
+              <Select.Option value="Woodlands">Woodlands</Select.Option>
+              <Select.Option value="Queenstown">Queenstown</Select.Option>
+              <Select.Option value="Bedok">Bedok</Select.Option>
+              <Select.Option value="Choa Chu Kang">Choa Chu Kang</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -140,10 +140,10 @@ function SearchBox() {
             style={{ width: 150 }}
             placeholder="3 Room"
             >
-              <Select.Option value="2roomflexi">Two Room Flexi</Select.Option>
-              <Select.Option value="3room">Three Room</Select.Option>
-              <Select.Option value="4room">Four Room</Select.Option>
-              <Select.Option value="5room">Five Room</Select.Option>
+              <Select.Option value="2 Room Flexi">Two Room Flexi</Select.Option>
+              <Select.Option value="3 Room">Three Room</Select.Option>
+              <Select.Option value="4 Room">Four Room</Select.Option>
+              <Select.Option value="5 Room">Five Room</Select.Option>
             </Select>
           </Form.Item>
           <Button type="primary"
