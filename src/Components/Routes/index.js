@@ -7,6 +7,7 @@ import Favourites from "../../Pages/Favourites";
 import Login from "../../Pages/Login";
 import UserAccount from "../../Pages/UserAccount";
 import Results from "../../Pages/Results";
+import Test from "../../Pages/Test";
 
 function AppRoutes() {
   return (
