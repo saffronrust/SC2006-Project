@@ -66,10 +66,10 @@ function SearchBox() {
     if (result.length === 0) {
       {
           alert("No results found. Please try again.");
-          return navigate("/");
+          return navigate("/search");
       }
     }
-    
+
     setTimeout(() => {
       navigate('/results');
     }, 100);
