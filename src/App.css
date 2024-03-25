@@ -140,7 +140,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 630px;
+  /* height: 630px; */
+  overflow: hidden;
 }
 
 .translucentbox {
