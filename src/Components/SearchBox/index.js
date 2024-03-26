@@ -9,8 +9,9 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
-import { query, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { addResultsToFirebase } from '../../Controllers/Database';
+import { fetchData } from '../../Controllers/Database';
 
 function SearchBox() {
 
@@ -21,26 +22,8 @@ function SearchBox() {
   const [filteredflats, setFilteredFlats] = useState(flats);
   const navigate = useNavigate();
 
-  function addResultsToFirebase() {
-    for (let i = 0; i < filteredflats.length; i++) {
-      const flat = filteredflats[i];
-      addDoc(collection(db, "results"), {
-        id: flat.id,
-        name: flat.name,
-        location: flat.location,
-        nearestmrtstation: flat.nearestmrtstation,
-        maxprice: flat.maxprice,
-        minprice: flat.minprice,
-        roomtype: flat.roomtype,
-        lat: flat.lat,
-        lng: flat.lng,
-        Street: flat.Street
-      });
-    }
-  }
-
   useEffect(() => {
-    addResultsToFirebase();
+    addResultsToFirebase(filteredflats);
   }, [filteredflats]);
 
   useEffect(() => {
@@ -64,13 +47,12 @@ function SearchBox() {
     }
   }
     setFilteredFlats(result);
-    addResultsToFirebase();
-    if (result.length === 0) {
+    addResultsToFirebase(filteredflats);
+    if (result.length === 0)
       {
           alert("No results found. Please try again.");
           return navigate("/search");
       }
-    }
 
     setTimeout(() => {
       navigate('/results');
@@ -159,4 +141,5 @@ function SearchBox() {
   );
 }
 export default SearchBox;
+
 
