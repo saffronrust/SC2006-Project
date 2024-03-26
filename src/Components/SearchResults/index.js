@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
-import { Card, Typography } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Card } from 'antd';
 import MapDisplay from './MapBox';
 
 function SearchResults() {
 
     const [resultflats, setresultFlats] = useState([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,7 +18,7 @@ function SearchResults() {
         fetchData();
       }, []);
 
-    // TODO: Make the cards spaced out more nicely
+
     return (
         <>
         <Card.Grid
@@ -37,8 +35,8 @@ function SearchResults() {
             {resultflats.map((flat) => (
                 <Card key={flat.id} title={flat.name}>
                     <p>Location: {flat.location}</p>
-                    <p>Max Price: {flat.maxprice}</p>
-                    <p>Min Price: {flat.minprice}</p>
+                    <p>Max Price: ${flat.maxprice}</p>
+                    <p>Min Price: ${flat.minprice}</p>
                     <p>Room Type:
                         {flat.roomtype.map((room) => (
                             <p>{room}</p>
