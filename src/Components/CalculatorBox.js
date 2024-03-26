@@ -4,7 +4,10 @@ import { useState } from "react";
 
 
 const CalculatorBox = () => {
+    const [age, setAge] = useState(35);
+    const [married, setmarried] = useState(1);
     const [income, setIncome] = useState(null);
+    const [lumpsum, setlumpsum] = useState("");
     const [cash, setCash] = useState("");
     const [cpf, setCPF] = useState("");
     const [housePrice, setHousePrice] = useState("");

@@ -4,7 +4,6 @@ function Results() {
     return (
         <div className="background">
             <div className="translucentbox">
-                <br />
                 <div className="searchresults">
                     <SearchResults />
                 </div>
