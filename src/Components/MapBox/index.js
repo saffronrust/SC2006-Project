@@ -3,9 +3,7 @@
 import React from 'react';
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 
-
-
-const MapDisplay = (latIn,lngIn,mapID) => {
+const MapBox = (latIn,lngIn,mapID) => {
     const position = { lat: latIn, lng: lngIn };
     return (
         <APIProvider apiKey="AIzaSyAuBdnyq0AjnvP-nBllgZaZ4cbBCn-VDxo">
@@ -20,4 +18,4 @@ const MapDisplay = (latIn,lngIn,mapID) => {
         
     );
 };
-export default MapDisplay;
+export default MapBox;
