@@ -7,6 +7,7 @@ import ResultCard from '../ResultCard';
 function SearchResultsBox() {
 
     const [resultflats, setresultFlats] = useState([]);
+    const fav = [];
 
     useEffect(() => {
         const fetchData = async () => {
