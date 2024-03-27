@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import { signInWithGoogle } from "../../firebase";
+import { signInWithGoogle } from "../../Controllers/Database";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Button } from "antd";
 import "./index.css";

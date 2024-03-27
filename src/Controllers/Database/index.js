@@ -1,5 +1,11 @@
 import { db } from '../../firebase';
 import { collection, addDoc, getDocs, query, deleteDoc } from 'firebase/firestore';
+import {
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { auth, googleProvider } from '../../firebase';
+import { where } from 'firebase/firestore';
 
   function addSearchResultsToFirebase(filteredflats) {
     for (let i = 0; i < filteredflats.length; i++) {
@@ -61,9 +67,35 @@ import { collection, addDoc, getDocs, query, deleteDoc } from 'firebase/firestor
     }
   }
 
+  const signInWithGoogle = async () => {
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
+      const user = res.user;
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      const docs = await getDocs(q);
+      if (docs.docs.length === 0) {
+        await addDoc(collection(db, "users"), {
+          uid: user.uid,
+          name: user.displayName,
+          authProvider: "google",
+          email: user.email,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+  
+  const logout = () => {
+    signOut(auth);
+  };
+
   export {
     addSearchResultsToFirebase,
     removeSearchResultsFromDatabase,
     addCompareResultsToFirebase,
     removeCompareResultsFromDatabase,
+    signInWithGoogle,
+    logout,
   };
