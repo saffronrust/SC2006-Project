@@ -7,7 +7,7 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button } from "antd";
 import { Card } from 'antd';
 
-function UserAccountFunction() {
+function UserAccountBox() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -49,4 +49,4 @@ function UserAccountFunction() {
     </div>
   );
 }
-export default UserAccountFunction;
+export default UserAccountBox;
