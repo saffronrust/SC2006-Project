@@ -47,7 +47,9 @@ function Home() {
                 >
                     In Singapore, buying public housing for the first time can be a daunting task for young adults. As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
                 </Title>
-                <Button onClick={() => navigate("/search")}>Begin Your Search!</Button>
+                <Button
+                type="primary"
+                onClick={() => navigate("/search")}>Begin Your Search!</Button>
             </div>
             <Func />
         </div>
