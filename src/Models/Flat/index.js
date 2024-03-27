@@ -1,6 +1,6 @@
 const flatOptions = [
     {
-      value: 'Bedok North Springs',
+      value: "Bedok North Springs",
     },
     {
       value: 'Bedok South Bloom',
@@ -21,19 +21,43 @@ const flatOptions = [
       value: 'Woodgrove Edge',
     },
     {
-      value: 'Punggol Central',
+      value: 'Alexandra Peaks',
     },
     {
-      value: 'Punggol North',
+      value: 'Chai Chee Green',
     },
     {
-      value: 'Punggol South',
+      value: 'Jurong Arcadia',
     },
     {
-      value: 'Punggol East',
-    }
+      value: 'Petir Park Edge',
+    },
+    {
+      value: 'Rajah Residences',
+    },
+    {
+      value: 'Sin Ming Residences',
+    },
+    {
+      value: 'Tanglin Halt Cascadia',
+    },
+    {
+      value: 'Tenteram Vantage',
+    },
+    {
+      value: 'Ulu Pandan Vista',
+    },
+    {
+      value: 'Urban Rise',
+    },
+    {
+      value: 'Verandah',
+    },
+    {
+      value: 'Woodlands Beacon',
+    },
   ];
 
   export {
-    flatOptions,
+    flatOptions
   }

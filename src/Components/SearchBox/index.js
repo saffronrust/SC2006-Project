@@ -10,8 +10,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { addResultsToFirebase } from '../../Controllers/Database';
-import { fetchData } from '../../Controllers/Database';
+import { addSearchResultsToFirebase } from '../../Controllers/Database';
 
 function SearchBox() {
 
@@ -23,7 +22,7 @@ function SearchBox() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    addResultsToFirebase(filteredflats);
+    addSearchResultsToFirebase(filteredflats);
   }, [filteredflats]);
 
   useEffect(() => {
@@ -47,7 +46,7 @@ function SearchBox() {
     }
   }
     setFilteredFlats(result);
-    addResultsToFirebase(filteredflats);
+    addSearchResultsToFirebase(filteredflats);
     if (result.length === 0)
       {
           alert("No results found. Please try again.");
@@ -55,7 +54,7 @@ function SearchBox() {
       }
 
     setTimeout(() => {
-      navigate('/results');
+      navigate('/searchresults');
     }, 100);
   }
 
@@ -112,6 +111,14 @@ function SearchBox() {
               <Select.Option value="Queenstown">Queenstown</Select.Option>
               <Select.Option value="Bedok">Bedok</Select.Option>
               <Select.Option value="Choa Chu Kang">Choa Chu Kang</Select.Option>
+              <Select.Option value="Redhill">Redhill</Select.Option>
+              <Select.Option value="Lakeside">Lakeside</Select.Option>
+              <Select.Option value="Bukit Panjang">Bukit Panjang</Select.Option>
+              <Select.Option value="Kallang">Kallang</Select.Option>
+              <Select.Option value="Marymount">Marymount</Select.Option>
+              <Select.Option value="Commonwealth">Commonwealth</Select.Option>
+              <Select.Option value="Dover">Dover</Select.Option>
+              <Select.Option value="Kallang">Kallang</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item

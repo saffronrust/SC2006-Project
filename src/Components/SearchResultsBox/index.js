@@ -4,13 +4,13 @@ import { getDocs, collection } from 'firebase/firestore';
 import { Card } from 'antd';
 import ResultCard from '../ResultCard';
 
-function SearchResults() {
+function SearchResultsBox() {
 
     const [resultflats, setresultFlats] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-          const querySnapshot = await getDocs(collection(db, "results"));
+          const querySnapshot = await getDocs(collection(db, "searchresults"));
           const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
           setresultFlats(data);
         };
@@ -37,4 +37,4 @@ function SearchResults() {
     );
 }
 
-export default SearchResults;
+export default SearchResultsBox;

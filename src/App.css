@@ -161,6 +161,12 @@
   margin-left: 100px;
 }
 
+.comparebox {
+  position: relative;
+  top: 100px;
+  margin-left: 100px;
+}
+
 .horizontalContainer{
   display: flex;
   flex-direction: row;

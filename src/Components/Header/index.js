@@ -1,18 +1,20 @@
 import { CalculatorFilled, HeartFilled, HomeFilled, SearchOutlined, SlidersFilled, UserOutlined } from "@ant-design/icons";
 import { Menu, Typography } from "antd";
 import { useNavigate } from 'react-router-dom';
-import { removedatabase } from "../../Controllers/Database";
+import { removeCompareResultsFromDatabase, removeSearchResultsFromDatabase } from "../../Controllers/Database";
 
 function AppHeader() {
     const navigate = useNavigate();
 
     const onMenuClick = (item) => {
-        removedatabase();
+        removeSearchResultsFromDatabase();
+        removeCompareResultsFromDatabase();
         navigate(`/${item.key}`);
     };
 
     const onLoginIconClick = () => {
-        removedatabase();
+        removeSearchResultsFromDatabase();
+        removeCompareResultsFromDatabase();
         navigate("/login")
     };
 

@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Button } from "antd";
 import "./index.css";
 
-function LoginFunction() {
+function LoginBox() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
@@ -29,4 +29,4 @@ function LoginFunction() {
       </div>
   );
 }
-export default LoginFunction;
+export default LoginBox;
