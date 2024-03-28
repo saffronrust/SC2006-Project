@@ -8,8 +8,8 @@ import {
 import React, { useState } from "react";
 
 const CalculatorTest = () => {
-    const [age, setAge] = useState(35);
-    const [married, setMarried] = useState(1);
+    const [age, setAge] = useState("");
+    const [married, setMarried] = useState("");
     const [grossMonthly, setGrossMonthly] = useState("");
     const [lumpsum, setLumpsum] = useState("");
     const [disposable, setDisposable] = useState(0);
@@ -29,6 +29,17 @@ const CalculatorTest = () => {
     const handleMarried = (event) => {
         setMarried(event.target.value);
     };
+
+    const debbu = ()=>{
+      // console.log(married, age, grossMonthly,cpf, check, saving);
+      console.log(age);
+      console.log(married);
+      console.log(grossMonthly);
+      console.log(lumpsum);
+      console.log(disposable);
+      console.log(cpf);
+      console.log(saving);
+    }
 
   function paymentcpf() {
     if (
@@ -247,7 +258,7 @@ const CalculatorTest = () => {
     } else if (
       age >= 21 &&
       age < 65 &&
-      ((married) => 1) &&
+      ((married) == 1) &&
       grossMonthly <= 14000
     ) {
       Estimationcouple(grossMonthly, disposable);
@@ -275,7 +286,7 @@ const CalculatorTest = () => {
                       message: 'Please input a valid age.',
                     },
                   ]}
-                  onValuesChange = {(e) => setAge(e.target.value)}
+                  onChange = {(e) => setAge(e.target.value)}
             >
             <InputNumber
             style={{ width: 150 }}
@@ -289,8 +300,8 @@ const CalculatorTest = () => {
             value= {married}
             >
                 <Radio.Group name="maritalstatus" defaultValue={1}>
-                    <Radio value={1} onValuesChange={handleMarried} check={married==1}>Yes</Radio>
-                    <Radio value={0} onValuesChange={handleMarried} check={married==0}>No</Radio>
+                    <Radio value={1} onChange={handleMarried} check={married==1}>Yes</Radio>
+                    <Radio value={0} onChange={handleMarried} check={married==0}>No</Radio>
                 </Radio.Group>
             </Form.Item>
             
@@ -305,8 +316,8 @@ const CalculatorTest = () => {
                       message: 'Please input a valid amount.',
                     },
                   ]}
-                  onValuesChange = {(e) => setGrossMonthly(e.target.value)}
-                  onKeyUp={calculateLoanAmount}
+                  onChange = {(e) => setGrossMonthly(e.target.value)}
+                  // onKeyUp={calculateLoanAmount}
             >
             <InputNumber
             style={{ width: 150 }}
@@ -325,7 +336,7 @@ const CalculatorTest = () => {
                       message: 'Please input a valid amount.',
                     },
                   ]}
-                  onValuesChange = {(e) => setLumpsum(e.target.value)}
+                  onChange = {(e) => setLumpsum(e.target.value)}
                   onKeyUp={calculateLoanAmount}
             >
             <InputNumber
@@ -345,7 +356,7 @@ const CalculatorTest = () => {
                       message: 'Please input a valid amount.',
                     },
                   ]}
-                onValuesChange = {(e) => setLumpsum(e.target.value)}
+                onChange = {(e) => setLumpsum(e.target.value)}
             >
             <InputNumber
             style={{ width: 150 }}
@@ -365,7 +376,7 @@ const CalculatorTest = () => {
                       message: 'Please input a valid amount.',
                     },
                   ]}
-                  onValuesChange = {(e) => setCPF(e.target.value)}
+                  onChange = {(e) => setCPF(e.target.value)}
             >
             <InputNumber
             style={{ width: 150 }}
@@ -384,7 +395,7 @@ const CalculatorTest = () => {
                       message: 'Please input a valid amount.',
                     },
                   ]}
-                  onValuesChange = {(e) => setSaving(e.target.value)}
+                onChange = {(e) => setSaving(e.target.value)}
             >
             <InputNumber
             style={{ width: 150 }}
@@ -399,6 +410,7 @@ const CalculatorTest = () => {
                 calculategrants();
                 recommend();
                 rec_recommend();
+                debbu();
               }}
             >
                 Calculate
