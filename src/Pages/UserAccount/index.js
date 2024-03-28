@@ -1,4 +1,4 @@
-import UserAccountFunction from "../../Components/UserAccountFunction";
+import UserAccountBox from "../../Components/UserAccountBox";
 
 function UserAccount() {
   return (
@@ -6,7 +6,7 @@ function UserAccount() {
         <div className="translucentbox">
             <br />
             <div className="useraccount">
-                <UserAccountFunction />
+                <UserAccountBox />
             </div>
         </div>
     </div>

@@ -9,8 +9,8 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
-import { query, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { addSearchResultsToFirebase } from '../../Controllers/Database';
 
 function SearchBox() {
 
@@ -21,26 +21,8 @@ function SearchBox() {
   const [filteredflats, setFilteredFlats] = useState(flats);
   const navigate = useNavigate();
 
-  function addResultsToFirebase() {
-    for (let i = 0; i < filteredflats.length; i++) {
-      const flat = filteredflats[i];
-      addDoc(collection(db, "results"), {
-        id: flat.id,
-        name: flat.name,
-        location: flat.location,
-        nearestmrtstation: flat.nearestmrtstation,
-        maxprice: flat.maxprice,
-        minprice: flat.minprice,
-        roomtype: flat.roomtype,
-        lat: flat.lat,
-        lng: flat.lng,
-        Street: flat.Street
-      });
-    }
-  }
-
   useEffect(() => {
-    addResultsToFirebase();
+    addSearchResultsToFirebase(filteredflats);
   }, [filteredflats]);
 
   useEffect(() => {
@@ -64,16 +46,15 @@ function SearchBox() {
     }
   }
     setFilteredFlats(result);
-    addResultsToFirebase();
-    if (result.length === 0) {
+    addSearchResultsToFirebase(filteredflats);
+    if (result.length === 0)
       {
           alert("No results found. Please try again.");
           return navigate("/search");
       }
-    }
 
     setTimeout(() => {
-      navigate('/results');
+      navigate('/searchresults');
     }, 100);
   }
 
@@ -130,6 +111,14 @@ function SearchBox() {
               <Select.Option value="Queenstown">Queenstown</Select.Option>
               <Select.Option value="Bedok">Bedok</Select.Option>
               <Select.Option value="Choa Chu Kang">Choa Chu Kang</Select.Option>
+              <Select.Option value="Redhill">Redhill</Select.Option>
+              <Select.Option value="Lakeside">Lakeside</Select.Option>
+              <Select.Option value="Bukit Panjang">Bukit Panjang</Select.Option>
+              <Select.Option value="Kallang">Kallang</Select.Option>
+              <Select.Option value="Marymount">Marymount</Select.Option>
+              <Select.Option value="Commonwealth">Commonwealth</Select.Option>
+              <Select.Option value="Dover">Dover</Select.Option>
+              <Select.Option value="Kallang">Kallang</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -159,4 +148,5 @@ function SearchBox() {
   );
 }
 export default SearchBox;
+
 

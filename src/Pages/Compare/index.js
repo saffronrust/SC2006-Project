@@ -1,11 +1,13 @@
-import ComparisonLayout from "../../Components/ComparisonLayout";
+import ComparisonBox from "../../Components/ComparisonBox";
 
 function Compare() {
     return (
         <div className="background">
             <div className="translucentbox">
                 <br />
-                <ComparisonLayout />
+                <div className="comparebox">
+                    <ComparisonBox />
+                </div>
             </div>
         </div>
     )

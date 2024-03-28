@@ -6,8 +6,9 @@ import Compare from "../../Pages/Compare";
 import Favourites from "../../Pages/Favourites";
 import Login from "../../Pages/Login";
 import UserAccount from "../../Pages/UserAccount";
-import Results from "../../Pages/Results";
+import SearchResults from "../../Pages/SearchResults";
 import Test from "../../Pages/Test";
+import CompareResults from "../../Pages/CompareResults";
 
 function AppRoutes() {
   return (
@@ -19,8 +20,9 @@ function AppRoutes() {
       <Route path="/favourites" element={<Favourites />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/useraccount" element={<UserAccount />}></Route>
-      <Route path="/results" element={<Results />}></Route>
+      <Route path="/searchresults" element={<SearchResults />}></Route>
       <Route path="/test" element={<Test />}></Route>
+      <Route path="/compareresults" element={<CompareResults />}></Route>
     </Routes>
   );
 }

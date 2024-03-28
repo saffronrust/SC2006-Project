@@ -1,4 +1,3 @@
-import {} from "antd";
 import "./App.css"
 import AppHeader from "./Components/Header";
 import AppFooter from "./Components/Footer";

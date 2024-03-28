@@ -1,15 +1,15 @@
-import SearchResults from "../../Components/SearchResults/index";
+import SearchResultsBox from "../../Components/SearchResultsBox";
 
-function Results() {
+function SearchResults() {
     return (
         <div className="background">
             <div className="translucentbox">
                 <div className="searchresults">
-                    <SearchResults />
+                    <SearchResultsBox />
                 </div>
             </div>
         </div>
       )
 }
 
-export default Results;
+export default SearchResults;

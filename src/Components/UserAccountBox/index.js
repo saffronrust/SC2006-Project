@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import { auth, db, logout } from "../../firebase";
+import { auth, db } from "../../firebase";
+import { logout } from "../../Controllers/Database";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button } from "antd";
 import { Card } from 'antd';
 
-function UserAccountFunction() {
+function UserAccountBox() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -49,4 +50,4 @@ function UserAccountFunction() {
     </div>
   );
 }
-export default UserAccountFunction;
+export default UserAccountBox;

@@ -1,4 +1,4 @@
-import LoginFunction from "../../Components/LoginFunction";
+import LoginBox from "../../Components/LoginBox";
 
 function Login() {
   return (
@@ -6,7 +6,7 @@ function Login() {
       <div className="translucentbox">
         <br />
         <div className="login">
-            <LoginFunction />
+            <LoginBox />
         </div>
     </div>
     </div>
