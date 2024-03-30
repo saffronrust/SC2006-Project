@@ -292,6 +292,7 @@ const CalculatorTest = () => {
                 min: 21,
                 max: 100,
                 message: "Please input a valid age.",
+                required: true,
               },
             ]}
             onChange={(e) => setAge(e.target.value)}
@@ -299,7 +300,16 @@ const CalculatorTest = () => {
             <InputNumber style={{ width: 150 }} placeholder="Age" />
           </Form.Item>
 
-          <Form.Item label="Married" name="married" value={married}>
+          <Form.Item
+          label="Married"
+          name="married"
+          value={married}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          >
             <Radio.Group name="maritalstatus" defaultValue={1}>
               <Radio value={1} onChange={handleMarried} check={married === 1}>
                 Yes
@@ -319,6 +329,7 @@ const CalculatorTest = () => {
                 type: "integer",
                 min: 0,
                 message: "Please input a valid amount.",
+                required: true,
               },
             ]}
             onChange={(e) => setGrossMonthly(e.target.value)}
@@ -339,6 +350,7 @@ const CalculatorTest = () => {
                 type: "integer",
                 min: 0,
                 message: "Please input a valid amount.",
+                required: true,
               },
             ]}
             onChange={(e) => setLumpsum(e.target.value)}
@@ -359,6 +371,7 @@ const CalculatorTest = () => {
                 type: "integer",
                 min: 0,
                 message: "Please input a valid amount.",
+                required: true,
               },
             ]}
             onChange={(e) => setDisposable(e.target.value)}
@@ -379,6 +392,7 @@ const CalculatorTest = () => {
                 type: "integer",
                 min: 0,
                 message: "Please input a valid amount.",
+                required: true,
               },
             ]}
             onChange={(e) => setCPF(e.target.value)}
@@ -398,6 +412,7 @@ const CalculatorTest = () => {
                 type: "integer",
                 min: 0,
                 message: "Please input a valid amount.",
+                required: true,
               },
             ]}
             onChange={(e) => setSaving(e.target.value)}

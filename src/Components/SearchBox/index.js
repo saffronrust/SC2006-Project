@@ -3,6 +3,7 @@ import {
   InputNumber,
   Select,
   Button,
+  Modal,
 } from 'antd';
 import Typography from 'antd/es/typography/Typography';
 import { SearchOutlined } from '@ant-design/icons';
@@ -11,6 +12,7 @@ import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { addSearchResultsToFirebase } from '../../Controllers/Database';
+import { message } from 'antd';
 
 function SearchBox() {
 
@@ -49,10 +51,11 @@ function SearchBox() {
     addSearchResultsToFirebase(filteredflats);
     if (result.length === 0)
       {
-          alert("No results found. Please try again.");
+          message.error('No results found. Please try again.', 2);
           return navigate("/search");
       }
 
+    message.success('Search successful! Redirecting to search results page...', 2);
     setTimeout(() => {
       navigate('/searchresults');
     }, 100);
@@ -85,6 +88,7 @@ function SearchBox() {
                 min: 1,
                 max: 1000000,
                 message: 'Please input a valid price.',
+                required: true,
               },
             ]}
             onValuesChange = {(e) => setMaxPrice(e.target.value)}
@@ -100,6 +104,14 @@ function SearchBox() {
           name="location"
           value= {location}
           onValuesChange={(e) => setLocation(e.target.value)}
+          rules={
+            [
+              {
+                required: true,
+                message: 'Please select a location.',
+              }
+            ]
+          }
           >
             <Select
             style={{ width: 150 }}
@@ -126,6 +138,14 @@ function SearchBox() {
           name="roomtype"
           value= {roomtype}
           onValuesChange= {(e) => setRoomType(e.target.value)}
+          rules={
+            [
+              {
+                required: true,
+                message: 'Please select a room type.',
+              }
+            ]
+          }
           >
             <Select
             style={{ width: 150 }}
@@ -139,7 +159,8 @@ function SearchBox() {
           </Form.Item>
           <Button type="primary"
           icon={<SearchOutlined />}
-          htmlType="submit">
+          htmlType="submit"
+          >
               Search
           </Button>
         </Form>
