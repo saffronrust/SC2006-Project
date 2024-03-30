@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const CalculatorTest = () => {
   const [age, setAge] = useState("");
-  const [married, setMarried] = useState("");
+  const [married, setMarried] = useState(1);
   const [grossMonthly, setGrossMonthly] = useState("");
   const [lumpsum, setLumpsum] = useState("");
   const [disposable, setDisposable] = useState(0);
@@ -11,7 +11,7 @@ const CalculatorTest = () => {
   const [cpf, setCPF] = useState("");
   const [enhancesSingle, setEnhancesSingle] = useState(0);
   const [enhanceCouple, setEnhanceCouple] = useState(0);
-  const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const [monthlyPayment, setMonthlyPayment] = useState("");
   const [stepupGrant, setStepupGrant] = useState(0);
   const [recommendation, setRecommendation] = useState("");
   const [renovate, setRenovate] = useState(0);
@@ -33,6 +33,7 @@ const CalculatorTest = () => {
     console.log(disposable);
     console.log(cpf);
     console.log(saving);
+    console.log(monthlyPayment);
   };
 
   function paymentcpf() {
@@ -42,10 +43,10 @@ const CalculatorTest = () => {
     ) {
       if (cpf >= 0.15 * grossMonthly * 12 * 5) {
         setPayCPF("Sufficient CPF");
-        // return paycpf;
+        return paycpf;
       } else {
         setPayCPF(0.15 * grossMonthly * 12 * 5 - cpf);
-        // return paycpf;
+        return paycpf;
       }
     } else setPayCPF(0);
     return paycpf;
@@ -80,7 +81,7 @@ const CalculatorTest = () => {
 
   function recommend() {
     if (age >= 65 || disposable < 0) {
-      setRecommendation("you are not allowed to bto!!!");
+      setRecommendation("Sorry, you are ineligible to bto...");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -107,8 +108,8 @@ const CalculatorTest = () => {
 
   function calculateLoanAmount() {
     setCheck(grossMonthly);
-    setDisposable(grossMonthly - lumpsum);
-    return disposable;
+    // setDisposable(grossMonthly - lumpsum);
+    // return disposable;
   }
 
   function Estimationsingle() {
@@ -117,15 +118,16 @@ const CalculatorTest = () => {
         calculateSingleGrant(grossMonthly) +
         grossMonthly * 12 * 5
     );
+
     return monthlyPayment;
   }
 
   function Estimationcouple() {
-    setMonthlyPayment(
+    let estBuyPower =
       calculateStepupgrant(grossMonthly) +
-        calculatecoupleGrant(grossMonthly) +
-        grossMonthly * 12 * 5
-    );
+      calculatecoupleGrant(grossMonthly) +
+      grossMonthly * 12 * 5;
+    setMonthlyPayment(estBuyPower);
     return monthlyPayment;
   }
 
@@ -164,10 +166,10 @@ const CalculatorTest = () => {
       return enhanceCouple;
     } else if ((grossMonthly > 5000) & (grossMonthly <= 5500)) {
       setEnhanceCouple(40000);
-      return enhanceCouple;
+      // return enhanceCouple;
     } else if ((grossMonthly > 5500) & (grossMonthly <= 6000)) {
       setEnhanceCouple(35000);
-      return enhanceCouple;
+      // return enhanceCouple;
     } else if ((grossMonthly > 6000) & (grossMonthly <= 6500)) {
       setEnhanceCouple(30000);
       return enhanceCouple;
@@ -264,14 +266,14 @@ const CalculatorTest = () => {
   }
 
   return (
-    <>
-      <div>
-        <h1>Check your Eligibility for BTO</h1>
+    <div className="calculatorPage">
+      <div className="calculatorForm">
+        <h1>Check your BTO Eligibility</h1>
         <Form
           onSubmit={(e) => e.preventDefault()}
           name="basic"
           labelCol={{
-            span: 8,
+            span: 12,
           }}
           wrapperCol={{
             span: 16,
@@ -320,7 +322,7 @@ const CalculatorTest = () => {
               },
             ]}
             onChange={(e) => setGrossMonthly(e.target.value)}
-            // onKeyUp={calculateLoanAmount}
+            onKeyUp={calculateLoanAmount}
           >
             <InputNumber
               style={{ width: 150 }}
@@ -423,55 +425,56 @@ const CalculatorTest = () => {
           </Form.Item>
         </Form>
       </div>
-      <div>
+      <div className="calculatorResult">
         <h2> {recommendation}</h2>
         {eligibility && (
-          <h3>
-            Estimated Buying Power:
-            <h4>$ {parseFloat(monthlyPayment.toFixed(2))}</h4>
-          </h3>
+          <>
+            <h3>Estimated Buying Power:</h3>
+            <p className="resultInfo">
+              $ {parseFloat(monthlyPayment.toFixed(2))}
+            </p>
+          </>
         )}
         {eligibility && (
-          <h3>
-            Downpayment required(15%):
-            <h4>$ {parseFloat(monthlyPayment * (0.15).toFixed(2))}</h4>
-          </h3>
+          <>
+            <h3>Downpayment required(15%):</h3>
+            <p className="resultInfo">
+              $ {parseFloat(monthlyPayment * (0.15).toFixed(2))}
+            </p>
+          </>
         )}
 
         {eligibility && (
-          <h3>
-            Option 1. Downpayment using Cash:
-            <h4>{paycash}</h4>
-          </h3>
+          <>
+            <h3>Option 1. Downpayment using Cash ($):</h3>
+            <p className="resultInfo">{paycash}</p>
+          </>
         )}
         {eligibility && (
-          <h3>
-            Option 2. Downpayment using CPF:
-            <h4>{paycpf}</h4>
-          </h3>
+          <>
+            <h3>Option 2. Downpayment using CPF ($):</h3>
+            <p className="resultInfo">{paycpf}</p>
+          </>
         )}
       </div>
       {eligibility && (
         <div>
           <div>
             <h1>Grants</h1>
-            <h3>
-              Step-Up CPF Housing Grant: <h4>{stepupGrant}</h4>
-            </h3>
-            <h3>
-              EHG Grant: <h4>{enhanceCouple + enhancesSingle}</h4>
-            </h3>
-            <h3>
-              Total Grant:{" "}
-              <h4>{enhanceCouple + enhancesSingle + stepupGrant}</h4>
-            </h3>
+            <h3>Step-Up CPF Housing Grant ($):</h3>{" "}
+            <p className="resultInfo">{stepupGrant}</p>
+            <h3>EHG Grant ($):</h3>{" "}
+            <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
+            <h3>Total Grant ($):</h3>{" "}
+            <p className="resultInfo">
+              {enhanceCouple + enhancesSingle + stepupGrant}
+            </p>
           </div>
-          <h3>
-            <h4>Recommended Renovation Cost: ${renovate}</h4>
-          </h3>
+          <h3>Recommended Renovation Cost ($):</h3>
+          <p className="resultInfo"> ${renovate}</p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
