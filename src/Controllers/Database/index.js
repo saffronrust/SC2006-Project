@@ -82,7 +82,7 @@ import { message } from 'antd';
           email: user.email,
         });
       }
-      message.success('Login successful! Redirecting to user account page...', 2);
+      message.success('Login successful!', 2);
     } catch (err) {
       console.error(err);
       message.error('Login failed. Please try again.', 2);
@@ -90,7 +90,7 @@ import { message } from 'antd';
   };
   
   const logout = () => {
-    message.success('Logout successful! Redirecting to home page...', 2);
+    message.success('Logout successful!', 2);
     signOut(auth);
   };
 
