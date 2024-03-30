@@ -55,10 +55,7 @@ function SearchBox() {
           return navigate("/search");
       }
 
-    message.success('Search successful! Redirecting to search results page...', 2);
-    setTimeout(() => {
-      navigate('/searchresults');
-    }, 100);
+    message.success('Search successful! Redirecting to search results page...', 1.5, () => navigate('/searchresults'));
   }
 
   return (

@@ -1,4 +1,4 @@
-import { Form, Button, Typography } from 'antd';
+import { Form, Button, Typography, message } from 'antd';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
@@ -113,9 +113,7 @@ function ComparisonBox() {
         setComparedFlats(result);
         addCompareResultsToFirebase(comparedFlats);
 
-        setTimeout(() => {
-            navigate('/compareresults');
-          }, 100);
+        message.success('Redirecting to comparison results page...', 1.5, () => navigate('/compareresults'));
       }
 
     return (

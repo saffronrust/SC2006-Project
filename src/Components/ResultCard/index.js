@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Card from "antd/es/card/Card";
 import MapBox from "../MapBox";
 import { HeartOutlined } from '@ant-design/icons';
-import { Button, Modal } from 'antd';
+import { Button, Modal, message } from 'antd';
 
 function ResultCard({flat}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +17,8 @@ function ResultCard({flat}) {
     // };
     const buttonclick = () =>{
         console.log('buttonclick');
+        //imo its better to use message instead of modal, less intrusive
+        //message.success('Successfully added to Favourites!', 2);
         showModal();
     }
     return (

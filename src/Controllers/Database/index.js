@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { auth, googleProvider } from '../../firebase';
 import { where } from 'firebase/firestore';
+import { message } from 'antd';
 
   function addSearchResultsToFirebase(filteredflats) {
     for (let i = 0; i < filteredflats.length; i++) {
@@ -81,13 +82,15 @@ import { where } from 'firebase/firestore';
           email: user.email,
         });
       }
+      message.success('Login successful! Redirecting to user account page...', 2);
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      message.error('Login failed. Please try again.', 2);
     }
   };
   
   const logout = () => {
+    message.success('Logout successful! Redirecting to home page...', 2);
     signOut(auth);
   };
 
