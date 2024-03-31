@@ -101,15 +101,21 @@ function ComparisonBox() {
     }, [flatname2]);
 
     const handleSubmit = async (values) => {
-        console.log(values); //this works
+
         const result = []
+        
+        if (values.firstflatname === values.secondflatname) {
+          message.error('Please select two different houses to compare!', 1.5);
+          return;
+        }
+
         for (let i = 0; i < flats.length; i++) {
           if (flats[i].name === values.firstflatname || flats[i].name === values.secondflatname)
           {
             result.push(flats[i]);
           }
         }
-        console.log(result);
+
         setComparedFlats(result);
         addCompareResultsToFirebase(comparedFlats);
 
