@@ -95,7 +95,9 @@ function ComparisonResultBox() {
                 title={flat.name}
               >
                 <p>Location: {flat.location}</p>
-                <ShowMinPrice flat={flat} />
+                <ShowMinPrice
+                flat={flat}
+                />
                 <br />
                 <ShowMaxPrice flat={flat} />
                 <p>Room Type:

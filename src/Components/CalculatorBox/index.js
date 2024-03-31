@@ -1,5 +1,6 @@
 import { Form, InputNumber, Button, Radio } from "antd";
 import React, { useEffect, useState } from "react";
+import { Typography } from "antd";
 
 const CalculatorBox = () => {
   const [age, setAge] = useState("");
@@ -272,7 +273,7 @@ const CalculatorBox = () => {
   return (
     <div className="calculatorPage">
       <div className="calculatorForm">
-        <h1>Check your BTO Eligibility</h1>
+      <Typography.Title level={2}>Check Your BTO Eligibility</Typography.Title>
         <Form
           onSubmit={
             (e) => e.preventDefault()
@@ -449,10 +450,10 @@ const CalculatorBox = () => {
         </Form>
       </div>
       <div className="calculatorResult">
-        <h2> {recommendation}</h2>
+        <Typography.Title level={3}>{recommendation}</Typography.Title>
         {eligibility && (
           <>
-            <h3>Estimated Buying Power:</h3>
+            <Typography.Title level={4}>Estimated Buying Power:</Typography.Title>
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment.toFixed(2))}
             </p>
@@ -460,7 +461,7 @@ const CalculatorBox = () => {
         )}
         {eligibility && (
           <>
-            <h3>Downpayment required(15%):</h3>
+            <Typography.Title level={4}>Downpayment required(15%):</Typography.Title>
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment * (0.15).toFixed(2))}
             </p>
@@ -469,13 +470,13 @@ const CalculatorBox = () => {
 
         {eligibility && (
           <>
-            <h3>Option 1. Downpayment using Cash ($):</h3>
+            <Typography.Title level={4}>Option 1. Downpayment using Cash ($):</Typography.Title>
             <p className="resultInfo">{paycash}</p>
           </>
         )}
         {eligibility && (
           <>
-            <h3>Option 2. Downpayment using CPF ($):</h3>
+            <Typography.Title level={4}>Option 1. Downpayment using CPF ($):</Typography.Title>
             <p className="resultInfo">{paycpf}</p>
           </>
         )}
@@ -483,17 +484,17 @@ const CalculatorBox = () => {
       {eligibility && (
         <div>
           <div>
-            <h1>Grants</h1>
-            <h3>Step-Up CPF Housing Grant ($):</h3>{" "}
+            <Typography.Title level={3}>Grants</Typography.Title>
+            <Typography.Title level={4}>Step-Up CPF Housing Grant ($):</Typography.Title>
             <p className="resultInfo">{stepupGrant}</p>
-            <h3>EHG Grant ($):</h3>{" "}
+            <Typography.Title level={4}>EHG Grant ($):</Typography.Title>
             <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
-            <h3>Total Grant ($):</h3>{" "}
+            <Typography.Title level={4}>Total Grant ($):</Typography.Title>
             <p className="resultInfo">
               {enhanceCouple + enhancesSingle + stepupGrant}
             </p>
           </div>
-          <h3>Recommended Renovation Cost ($):</h3>
+          <Typography.Title level={4}>Recommended Renovation Cost ($):</Typography.Title>
           <p className="resultInfo"> ${renovate}</p>
         </div>
       )}
