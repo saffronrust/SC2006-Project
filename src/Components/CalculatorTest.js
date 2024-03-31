@@ -1,5 +1,5 @@
 import { Form, InputNumber, Button, Radio } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const CalculatorTest = () => {
   const [age, setAge] = useState("");
@@ -11,7 +11,7 @@ const CalculatorTest = () => {
   const [cpf, setCPF] = useState("");
   const [enhancesSingle, setEnhancesSingle] = useState(0);
   const [enhanceCouple, setEnhanceCouple] = useState(0);
-  const [monthlyPayment, setMonthlyPayment] = useState("");
+  const [monthlyPayment, setMonthlyPayment] = useState(0);
   const [stepupGrant, setStepupGrant] = useState(0);
   const [recommendation, setRecommendation] = useState("");
   const [renovate, setRenovate] = useState(0);
@@ -20,6 +20,10 @@ const CalculatorTest = () => {
   const [paycash, setPayCash] = useState(0);
   const [eligibility, setEligibility] = useState(false);
 
+  useEffect(() => {
+    calculategrants();
+  }, [enhancesSingle, enhanceCouple, stepupGrant]);
+  
   const handleMarried = (event) => {
     setMarried(event.target.value);
   };
@@ -270,7 +274,9 @@ const CalculatorTest = () => {
       <div className="calculatorForm">
         <h1>Check your BTO Eligibility</h1>
         <Form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={
+            (e) => e.preventDefault()
+          }
           name="basic"
           labelCol={{
             span: 12,
@@ -310,7 +316,9 @@ const CalculatorTest = () => {
             },
           ]}
           >
-            <Radio.Group name="maritalstatus" defaultValue={1}>
+            <Radio.Group name="maritalstatus"
+            //defaultValue={1}
+            >
               <Radio value={1} onChange={handleMarried} check={married === 1}>
                 Yes
               </Radio>
