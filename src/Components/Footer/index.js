@@ -11,7 +11,7 @@ function AppFooter() {
         fontWeight: 'bold',
       }}
       >
-        A website by Team JENTS for SC2006 Software Engineering Project
+        A website by Team JENTS for SC2006 Software Engineering Project. Made with the FER(A)N tech stack [Firebase, Express.js, React (Ant Design UI), Node.js]
       </Footer>
       </div>
     )

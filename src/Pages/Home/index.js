@@ -43,9 +43,10 @@ function Home() {
             </div>
             <div className="homeCaption">
                 <Title
-                level={2}
+                level={3}
                 >
-                    In Singapore, buying public housing for the first time can be a daunting task for young adults. As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
+                    In Singapore, buying public housing for the first time can be a daunting task for young adults.
+                    As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
                 </Title>
                 <Button
                 type="primary"
