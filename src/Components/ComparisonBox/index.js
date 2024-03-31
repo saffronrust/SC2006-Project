@@ -6,68 +6,9 @@ import { AutoComplete } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { addCompareResultsToFirebase } from '../../Controllers/Database';
 import { useNavigate } from 'react-router-dom';
+import { flatOptions } from '../../Models/Flat';
 
 function ComparisonBox() {
-
-    const flatOptions = [
-        {
-          value: 'Bedok North Springs',
-        },
-        {
-          value: 'Bedok South Bloom',
-        },
-        {
-          value: 'Matilda Riverside',
-        },
-        {
-          value: 'Rail Garden',
-        },
-        {
-          value: 'Tanglin Halt Courtyard',
-        },
-        {
-          value: 'Tanjong Tree Residences',
-        },
-        {
-          value: 'Woodgrove Edge',
-        },
-        {
-          value: 'Alexandra Peaks',
-        },
-        {
-          value: 'Chai Chee Green',
-        },
-        {
-          value: 'Jurong Arcadia',
-        },
-        {
-          value: 'Petir Park Edge',
-        },
-        {
-          value: 'Rajah Residences',
-        },
-        {
-          value: 'Sin Ming Residences',
-        },
-        {
-          value: 'Tanglin Halt Cascadia',
-        },
-        {
-          value: 'Tenteram Vantage',
-        },
-        {
-          value: 'Ulu Pandan Vista',
-        },
-        {
-          value: 'Urban Rise',
-        },
-        {
-          value: 'Verandah',
-        },
-        {
-          value: 'Woodlands Beacon',
-        },
-      ];
 
     const navigate = useNavigate();
 
@@ -103,7 +44,7 @@ function ComparisonBox() {
     const handleSubmit = async (values) => {
 
         const result = []
-        
+
         if (values.firstflatname === values.secondflatname) {
           message.error('Please select two different houses to compare!', 1.5);
           return;
