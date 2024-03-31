@@ -1,1 +1,1 @@
-// TODO: add functions that compare between the two flats of the compareFlats array
+//empty for now
