@@ -4,6 +4,9 @@ import { getDocs, collection } from 'firebase/firestore';
 import { Card } from 'antd';
 import Text from "antd/es/typography/Text";
 import MapBox from '../MapBox';
+import { ShowMinPrice } from '../../Controllers/Compare';
+import { ShowMaxPrice } from '../../Controllers/Compare';
+import { ShowMRTStationTime } from '../../Controllers/Compare';
 
 function ComparisonResultBox() {
 
@@ -18,65 +21,6 @@ function ComparisonResultBox() {
 
         fetchData();
     }, []);
-
-    console.log(compareFlats);
-
-    function ShowMinPrice({flat}) {
-      if (flat.name === compareFlats[0].name) {
-        if (compareFlats[0].minprice < compareFlats[1].minprice) {
-          return <Text type="success">Min Price: ${flat.minprice}</Text>
-        }
-        else {
-          return <Text type="danger">Min Price: ${flat.minprice}</Text>
-        }
-      }
-      else if (flat.name === compareFlats[1].name) {
-        if (compareFlats[1].minprice < compareFlats[0].minprice) {
-          return <Text type="success">Min Price: ${flat.minprice}</Text>
-        }
-        else {
-          return <Text type="danger">Min Price: ${flat.minprice}</Text>
-        }
-      }
-    }
-
-    function ShowMaxPrice({flat}) {
-      if (flat.name === compareFlats[0].name) {
-        if (compareFlats[0].maxprice < compareFlats[1].maxprice) {
-          return <Text type="success">Max Price: ${flat.maxprice}</Text>
-        }
-        else {
-          return <Text type="danger">Max Price: ${flat.maxprice}</Text>
-        }
-      }
-      else if (flat.name === compareFlats[1].name) {
-        if (compareFlats[1].maxprice < compareFlats[0].maxprice) {
-          return <Text type="success">Max Price: ${flat.maxprice}</Text>
-        }
-        else {
-          return <Text type="danger">Max Price: ${flat.maxprice}</Text>
-        }
-      }
-    }
-
-    function ShowMRTStationTime({flat}) {
-      if (flat.name === compareFlats[0].name) {
-        if (compareFlats[0].nearestmrtstation < compareFlats[1].nearestmrtstation) {
-          return <Text type="success">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
-        }
-        else {
-          return <Text type="danger">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
-        }
-      }
-      else if (flat.name === compareFlats[1].name) {
-        if (compareFlats[1].nearestmrtstation < compareFlats[0].nearestmrtstation) {
-          return <Text type="success">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
-        }
-        else {
-          return <Text type="danger">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
-        }
-      }
-    }
 
       return (
         <>
@@ -97,15 +41,22 @@ function ComparisonResultBox() {
                 <p>Location: {flat.location}</p>
                 <ShowMinPrice
                 flat={flat}
+                compareFlats={compareFlats}
                 />
                 <br />
-                <ShowMaxPrice flat={flat} />
+                <ShowMaxPrice
+                flat={flat}
+                compareFlats={compareFlats}
+                />
                 <p>Room Type:
                   {flat.roomtype.map((room) => (
                     <p>{room}</p>
                   ))}
                 </p>
-                <ShowMRTStationTime flat={flat} />
+                <ShowMRTStationTime
+                flat={flat}
+                compareFlats={compareFlats}
+                />
                 <p>{MapBox(flat.lat, flat.lng, flat.Street)}</p>
               </Card>
           ))}
