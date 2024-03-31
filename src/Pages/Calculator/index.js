@@ -1,12 +1,11 @@
-// import CalculatorBox from "../../Components/CalculatorBox";
-import CalculatorTest from "../../Components/CalculatorTest";
+import CalculatorBox from "../../Components/CalculatorBox";
+
 function Calculator() {
     return (
         <div className="background">
             <div className="translucentbox">
                 <br/>
-                {/* <CalculatorBox /> */}
-                <CalculatorTest/>
+                <CalculatorBox />
             </div>
         </div>
     )

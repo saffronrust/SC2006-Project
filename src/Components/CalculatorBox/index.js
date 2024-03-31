@@ -1,7 +1,7 @@
 import { Form, InputNumber, Button, Radio } from "antd";
 import React, { useEffect, useState } from "react";
 
-const CalculatorTest = () => {
+const CalculatorBox = () => {
   const [age, setAge] = useState("");
   const [married, setMarried] = useState(1);
   const [grossMonthly, setGrossMonthly] = useState("");
@@ -501,4 +501,4 @@ const CalculatorTest = () => {
   );
 };
 
-export default CalculatorTest;
+export default CalculatorBox;
