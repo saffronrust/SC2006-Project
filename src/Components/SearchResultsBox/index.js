@@ -7,7 +7,6 @@ import ResultCard from '../ResultCard';
 function SearchResultsBox() {
 
     const [resultflats, setresultFlats] = useState([]);
-    const fav = [];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +28,7 @@ function SearchResultsBox() {
             width: '100%',
             textAlign: 'center',
             fontSize: '20px'}}
-        onClick={() => console.log('clicked')}
+        //onClick={() => console.log('clicked')}
         >
             {resultflats.map((flat) => (
                 <ResultCard key={flat.id} flat={flat} />

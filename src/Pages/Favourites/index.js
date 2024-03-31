@@ -1,8 +1,12 @@
+import FavouritePage from '../../Components/FavouritePage'
+
 function Favourites() {
     return (
         <div className="background">
             <div className="translucentbox">
-                <div>Favourites</div>
+                <div className='favbox'>
+                    <FavouritePage />
+                </div>
             </div>
         </div>
     )
