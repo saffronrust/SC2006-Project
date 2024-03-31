@@ -371,7 +371,7 @@ const CalculatorBox = () => {
             />
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             label="Disposable Income"
             name="Disposable Income"
             value={disposable}
@@ -390,7 +390,7 @@ const CalculatorBox = () => {
               placeholder="Enter amount here"
               // readOnly='true'
             />
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item
             label="CPF"
