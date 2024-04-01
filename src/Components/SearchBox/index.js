@@ -14,18 +14,20 @@ import { useNavigate } from 'react-router-dom';
 import { addSearchResultsToFirebase } from '../../Controllers/Database';
 import { message } from 'antd';
 
+
+const result = []
 function SearchBox() {
 
   const [maxprice, setMaxPrice] = useState(0);
   const [location, setLocation] = useState("");
   const [roomtype, setRoomType] = useState("");
   const [flats, setFlats] = useState([]);
-  const [filteredflats, setFilteredFlats] = useState(flats);
+  // const [filteredflats, setFilteredFlats] = useState(flats);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    addSearchResultsToFirebase(filteredflats);
-  }, [filteredflats]);
+  // useEffect(() => {
+  //   addSearchResultsToFirebase(filteredflats);
+  // }, [filteredflats]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +40,7 @@ function SearchBox() {
   }, []);
 
   const handleSubmit = async (values) => {
-    const result = []
+    // const result = []
     for (let i = 0; i < flats.length; i++) {
         for (let j = 0; j < flats[i].roomtype.length; j++) {
       if (flats[i].maxprice <= values.maxprice && flats[i].location === values.location && flats[i].roomtype[j] === values.roomtype)
@@ -47,8 +49,8 @@ function SearchBox() {
       }
     }
   }
-    setFilteredFlats(result);
-    addSearchResultsToFirebase(filteredflats);
+    // setFilteredFlats(result);
+    // addSearchResultsToFirebase(filteredflats);
     if (result.length === 0)
       {
           message.error('No results found. Please try again.', 2);
@@ -166,5 +168,6 @@ function SearchBox() {
   );
 }
 export default SearchBox;
+export {result};
 
 

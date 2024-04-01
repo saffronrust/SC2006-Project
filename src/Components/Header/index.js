@@ -4,19 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import { removeCompareResultsFromDatabase, removeSearchResultsFromDatabase } from "../../Controllers/Database";
 import { useState, useRef } from "react";
 import { Button, Tour } from "antd";
+import { result } from "../SearchBox";
 
 function AppHeader() {
     const navigate = useNavigate();
 
     const onMenuClick = (item) => {
-        removeSearchResultsFromDatabase();
+        // removeSearchResultsFromDatabase();
         removeCompareResultsFromDatabase();
+        result.length = 0;
         navigate(`/${item.key}`);
     };
 
     const onLoginIconClick = () => {
-        removeSearchResultsFromDatabase();
+        // removeSearchResultsFromDatabase();
         removeCompareResultsFromDatabase();
+        result.length = 0;
         navigate("/login")
     };
 

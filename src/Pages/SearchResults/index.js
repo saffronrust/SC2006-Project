@@ -4,7 +4,7 @@ function SearchResults() {
     return (
         <div className="background">
             <div className="translucentbox">
-                <div className="searchresults">
+                <div className="favbox">
                     <SearchResultsBox />
                 </div>
             </div>

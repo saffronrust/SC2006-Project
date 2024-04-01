@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { List, Modal, Button, Empty } from 'antd';
-import {fav} from '../ResultCard';
 import MapBox from "../MapBox";
-
+import { fav } from '../SearchResultsBox';
 const FavouritePage = () => {
 
     const [position, setPosition] = useState('bottom');
