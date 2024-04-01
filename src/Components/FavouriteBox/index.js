@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { List, Modal, Button, Empty } from 'antd';
 import MapBox from "../MapBox";
 import { fav } from '../SearchResultsBox';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
+import { Result } from 'antd';
+import { Typography } from 'antd';
 const FavouritePage = () => {
+
+    const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const [position, setPosition] = useState('bottom');
     const [align, setAlign] = useState('center');
@@ -17,15 +25,43 @@ const FavouritePage = () => {
         setOpen(false);
     };
 
+    if (!user) {
+        return (
+        <Result
+        status="403"
+        title="Not Logged In"
+        subTitle="Please login to view your favourites."
+        extra={
+        <Button 
+        type="primary"
+        onClick={() => navigate("/login")}
+        >
+            Go To Login Page</Button>}
+    >
+        </Result>
+        )
+    }
     if (fav.length===0){
         return (
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} 
+            <>
+            <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
                 description={
                     <span>
-                    No Favourite Houses
+                        <Typography.Text>No favourites, please go to the search page to add some!</Typography.Text>
+                        <br/>
+                        <br/>
+                        <Button 
+                            type="primary"
+                            onClick={() => navigate("/search")}
+                        >
+                            Go To Search Page
+                        </Button>
                     </span>
                 }
+                
             />
+        </>
         )
     }
     else {

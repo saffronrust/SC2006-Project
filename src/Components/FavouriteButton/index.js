@@ -2,32 +2,37 @@ import React from 'react';
 import { Button, notification } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 import { fav } from '../SearchResultsBox';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
 
 function FavouriteButton({flat}) {
 
+    const [user, loading] = useAuthState(auth);
+
     const [api, contextHolder] = notification.useNotification();
 
-    const successNotif = (type) => {
-        api[type]({
-            message: 'Successfully added to Favourites!',
-        });
-        
-    };
-
-    const failedNotif = (type) => {
-        api[type]({
-            message: 'Flat already added to Favourites!',
-        });
-    };
-
     const buttonclick = (flat) => {
+        if (!user) {
+            notification.error({
+                message: 'Not Logged In',
+                description: 'Please login to add to favourites.',
+            });
+            return;
+        }
         console.log('buttonclick');
         if (fav.find(item => item.id === flat.id)) { // search by id
-	        failedNotif('error');
+            notification.error({
+                message: 'Already added!',
+                description: 'Flat already added to Favourites!',
+            });
+            return;
  	    }
         else {
-            successNotif('success');
+            notification.success({
+                message: 'Successfully added to Favourites!',
+            });
             fav.push(flat);
+            return;
         }
     }
 

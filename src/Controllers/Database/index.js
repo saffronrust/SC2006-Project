@@ -7,36 +7,7 @@ import {
 import { auth, googleProvider } from '../../firebase';
 import { where } from 'firebase/firestore';
 import { message } from 'antd';
-
-  function addSearchResultsToFirebase(filteredflats) {
-    for (let i = 0; i < filteredflats.length; i++) {
-      const flat = filteredflats[i];
-      addDoc(collection(db, "searchresults"), {
-        id: flat.id,
-        name: flat.name,
-        location: flat.location,
-        nearestmrtstation: flat.nearestmrtstation,
-        maxprice: flat.maxprice,
-        minprice: flat.minprice,
-        roomtype: flat.roomtype,
-        lat: flat.lat,
-        lng: flat.lng,
-        Street: flat.Street
-      });
-    }
-  }
-
-  async function removeSearchResultsFromDatabase() {
-    try {
-      const q = query(collection(db, "searchresults"));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        deleteDoc(doc.ref);
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  }
+import { fav } from '../../Components/SearchResultsBox';
 
   function addCompareResultsToFirebase(comparedflats) {
     for (let i = 0; i < comparedflats.length; i++) {
@@ -91,12 +62,11 @@ import { message } from 'antd';
   
   const logout = () => {
     message.success('Logout successful!', 2);
+    fav.length = 0;
     signOut(auth);
   };
 
   export {
-    addSearchResultsToFirebase,
-    removeSearchResultsFromDatabase,
     addCompareResultsToFirebase,
     removeCompareResultsFromDatabase,
     signInWithGoogle,
