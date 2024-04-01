@@ -84,7 +84,7 @@ const CalculatorBox = () => {
 
   function recommend() {
     if (age >= 65) {
-      setRecommendation("Sorry, you are ineligible to bto...");
+      setRecommendation("Sorry, you are ineligible to BTO...");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -423,54 +423,72 @@ const CalculatorBox = () => {
           </Form.Item>
         </Form>
       </div>
-      <div className="calculatorResult">
-        <Typography.Title level={3}>{recommendation}</Typography.Title>
+      <div>
+        <h3>{recommendation}</h3>
+
         {eligibility && (
-          <>
-            <Typography.Title level={4}>Estimated Buying Power:</Typography.Title>
+          <div className="calculatorResult">
+            <h3 className="resultTitle">Estimated Buying Power:</h3>
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment.toFixed(2))}
             </p>
-          </>
+          </div>
         )}
         {eligibility && (
-          <>
-            <Typography.Title level={4}>Downpayment required(15%):</Typography.Title>
+          <div className="calculatorResult">
+            <h3 className="resultTitle">Downpayment required(15%):</h3>
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment * (0.15).toFixed(2))}
             </p>
-          </>
+          </div>
         )}
 
         {eligibility && (
-          <>
-            <Typography.Title level={4}>Option 1. Downpayment using Cash ($):</Typography.Title>
+          <div className="calculatorResult">
+            <h3 className="resultTitle">Option 1. Downpayment using Cash ($):</h3>
             <p className="resultInfo">{paycash}</p>
-          </>
+          </div>
         )}
         {eligibility && (
-          <>
-            <Typography.Title level={4}>Option 1. Downpayment using CPF ($):</Typography.Title>
+          <div className="calculatorResult">
+            <h3 className="resultTitle">Option 2. Downpayment using CPF ($):</h3>
             <p className="resultInfo">{paycpf}</p>
-          </>
+          </div>
         )}
       </div>
       {eligibility && (
-        <div>
-          <div>
-            <Typography.Title level={3}>Grants</Typography.Title>
-            <Typography.Title level={4}>Step-Up CPF Housing Grant ($):</Typography.Title>
-            <p className="resultInfo">{stepupGrant}</p>
-            <Typography.Title level={4}>EHG Grant ($):</Typography.Title>
-            <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
-            <Typography.Title level={4}>Total Grant ($):</Typography.Title>
-            <p className="resultInfo">
-              {enhanceCouple + enhancesSingle + stepupGrant}
-            </p>
-          </div>
-          <Typography.Title level={4}>Recommended Renovation Cost ($):</Typography.Title>
+        <div className="calculatorGrant">
+          <Typography.Title level={3}>Grants</Typography.Title>
+              <h3 className="resultTitle">Step-Up CPF Housing Grant ($):</h3>
+              <p className="resultInfo">{stepupGrant}</p>
+              <h3 className="resultTitle">EHG Grant ($):</h3>
+              <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
+              <h3 className="resultTitle">Total Grant ($):</h3>
+              <p className="resultInfo">{enhanceCouple + enhancesSingle + stepupGrant}</p>
+          <h3 className="resultTitle">Recommended Renovation Cost ($):</h3>
           <p className="resultInfo"> ${renovate}</p>
         </div>
+      //   <div className="calculatorGrant">
+      //   <Typography.Title level={3}>Grants</Typography.Title>
+      //   <table>
+      //     <tr>
+      //         <th>Step-Up CPF Housing Grant ($):</th>
+      //         <td className="resultInfo">{stepupGrant}</td>
+      //     </tr>
+      //     <tr>
+            
+      //         <th>EHG Grant ($):</th>
+      //         <td className="resultInfo">{enhanceCouple + enhancesSingle}</td>
+      //     </tr>
+      //     <tr>
+
+      //         <th>Total Grant ($):</th>
+      //         <td className="resultInfo">{enhanceCouple + enhancesSingle + stepupGrant}</td>
+      //     </tr>
+      //   </table>
+      //   <Typography.Title level={4}>Recommended Renovation Cost ($):</Typography.Title>
+      //   <p className="resultInfo"> ${renovate}</p>
+      // </div>
       )}
     </div>
   );
