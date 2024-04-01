@@ -1,9 +1,6 @@
 import { db, auth, googleProvider } from '../../firebase';
 import { collection, addDoc, getDocs, query, deleteDoc, where } from 'firebase/firestore';
-import {
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { message } from 'antd';
 import { fav } from '../../Components/SearchResultsBox';
 
