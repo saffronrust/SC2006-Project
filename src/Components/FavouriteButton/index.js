@@ -38,16 +38,21 @@ function FavouriteButton({flat}) {
 
     return (
         <>
-        {contextHolder}
-        <Button
-        type="primary"
-        style={{
-            background: "red",
-            borderColor: "red"
-        }}
-        shape="circle"
-        icon={<HeartOutlined />}
-        onClick={()=>buttonclick(flat)}/>
+            {contextHolder}
+            <Button
+                type="primary"
+                style={{
+                    background: "red",
+                    borderColor: "red"
+                }}
+                shape="circle"
+                icon={
+                    <HeartOutlined />
+                }
+                onClick={
+                    ()=>buttonclick(flat)
+                }
+            />
         </>
     );
 }

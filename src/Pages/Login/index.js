@@ -4,11 +4,10 @@ function Login() {
   return (
     <div className="background">
       <div className="translucentbox">
-        <br />
         <div className="login">
-            <LoginBox />
+          <LoginBox />
         </div>
-    </div>
+      </div>
     </div>
   )
 }

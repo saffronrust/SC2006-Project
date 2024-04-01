@@ -4,7 +4,6 @@ function Calculator() {
     return (
         <div className="background">
             <div className="translucentbox">
-                <br/>
                 <CalculatorBox />
             </div>
         </div>

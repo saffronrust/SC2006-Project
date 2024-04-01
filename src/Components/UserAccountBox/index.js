@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import "./index.css";
 import { auth, db } from "../../firebase";
 import { logout } from "../../Controllers/Database";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { Button } from "antd";
-import { Card } from 'antd';
+import { Button, Card } from "antd";
+import "./index.css";
 
 function UserAccountBox() {
+
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
+
   const fetchUserName = async () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
@@ -20,9 +21,9 @@ function UserAccountBox() {
       setName(data.name);
     } catch (err) {
       console.error(err);
-      //alert("An error occured while fetching user data");
     }
   };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -31,23 +32,29 @@ function UserAccountBox() {
 
   return (
     <div className="dashboard">
-       <Card
-      title="Logged in as:"
-      style={{
-        width: 200,
-      }}
+      <Card
+        title="Logged in as:"
+        style={{
+          width: 200,
+        }}
       >
-      <p>{name}</p>
-      <p>{user?.email}</p>
-      <Button
-      type="primary"
-      size="large"
-      className="logoutbutton"
-      danger onClick={logout}>
-        Logout
-      </Button>
+        <p>
+          {name}
+        </p>
+        <p>
+          {user?.email}
+        </p>
+        <Button
+          type="primary"
+          size="large"
+          className="logoutbutton"
+          danger onClick={logout}
+        >
+          Logout
+        </Button>
       </Card>
     </div>
   );
 }
+
 export default UserAccountBox;

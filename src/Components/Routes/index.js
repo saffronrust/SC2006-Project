@@ -12,15 +12,42 @@ import CompareResults from "../../Pages/CompareResults";
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/search" element={<Search />}></Route>
-      <Route path="/calculator" element={<Calculator />}></Route>
-      <Route path="/compare" element={<Compare />}></Route>
-      <Route path="/favourites" element={<Favourites />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/useraccount" element={<UserAccount />}></Route>
-      <Route path="/searchresults" element={<SearchResults />}></Route>
-      <Route path="/compareresults" element={<CompareResults />}></Route>
+      <Route
+        path="/"
+        element={<Home />}
+      />
+      <Route
+        path="/search"
+        element={<Search />}
+      />
+      <Route
+        path="/calculator"
+        element={<Calculator />}
+      />
+      <Route
+        path="/compare"
+        element={<Compare />}
+      />
+      <Route
+        path="/favourites"
+        element={<Favourites />}
+      />
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+      <Route
+        path="/useraccount"
+        element={<UserAccount />}
+      />
+      <Route
+        path="/searchresults"
+        element={<SearchResults />}
+      />
+      <Route
+        path="/compareresults"
+        element={<CompareResults />}
+      />
     </Routes>
   );
 }

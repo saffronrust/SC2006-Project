@@ -7,8 +7,10 @@ import { Button } from "antd";
 import "./index.css";
 
 function LoginBox() {
+
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
@@ -18,15 +20,19 @@ function LoginBox() {
       navigate("/useraccount");
     }
   }, [user, loading]);
+
   return (
     <div className="login">
         <Button
-        type = "primary"
-        size = "large"
-        className="login__btn login__google" onClick={signInWithGoogle}>
+          type = "primary"
+          size = "large"
+          className="login__btn login__google"
+          onClick={signInWithGoogle}
+        >
           Login with Google
         </Button>
-      </div>
+    </div>
   );
 }
+
 export default LoginBox;

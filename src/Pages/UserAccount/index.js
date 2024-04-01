@@ -1,16 +1,15 @@
 import UserAccountBox from "../../Components/UserAccountBox";
 
 function UserAccount() {
-  return (
-    <div className="background">
-        <div className="translucentbox">
-            <br />
-            <div className="useraccount">
-                <UserAccountBox />
+    return (
+        <div className="background">
+            <div className="translucentbox">
+                <div className="useraccount">
+                    <UserAccountBox />
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
 }
 
 export default UserAccount;

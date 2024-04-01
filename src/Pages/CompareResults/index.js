@@ -4,7 +4,6 @@ function CompareResults() {
     return (
         <div className="background">
             <div className="translucentbox">
-                <br />
                 <div className="compareresults">
                     <ComparisonResultBox />
                 </div>

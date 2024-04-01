@@ -3,6 +3,7 @@ import {
   InputNumber,
   Select,
   Button,
+  message,
 } from 'antd';
 import Typography from 'antd/es/typography/Typography';
 import { SearchOutlined } from '@ant-design/icons';
@@ -10,10 +11,9 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { message } from 'antd';
-
 
 const result = []
+
 function SearchBox() {
 
   const [maxprice, setMaxPrice] = useState(0);
@@ -35,17 +35,19 @@ function SearchBox() {
   const handleSubmit = async (values) => {
     for (let i = 0; i < flats.length; i++) {
         for (let j = 0; j < flats[i].roomtype.length; j++) {
-      if (flats[i].maxprice <= values.maxprice && flats[i].location === values.location && flats[i].roomtype[j] === values.roomtype)
-      {
-        result.push(flats[i]);
-      }
+          if (flats[i].maxprice <= values.maxprice &&
+            flats[i].location === values.location &&
+            flats[i].roomtype[j] === values.roomtype)
+          {
+            result.push(flats[i]);
+          }
+        }
     }
-  }
 
     if (result.length === 0)
       {
-          message.error('No results found. Please try again.', 2);
-          return navigate("/search");
+        message.error('No results found. Please try again.', 2);
+        return navigate("/search");
       }
 
     message.success('Search successful! Redirecting to search results page...', 1.5, () => navigate('/searchresults'));
@@ -54,7 +56,11 @@ function SearchBox() {
   return (
     <div class = 'horizontalContainer'>
       <div>
-        <Typography.Title level={2}>Search for a BTO</Typography.Title>
+        <Typography.Title
+          level={2}
+        >
+          Search for a BTO
+        </Typography.Title>
         <Form
           labelCol={{
             span: 14,
@@ -82,83 +88,149 @@ function SearchBox() {
               },
             ]}
             onValuesChange = {(e) => setMaxPrice(e.target.value)}
-            >
+          >
             <InputNumber
-            style={{ width: 150 }}
-            placeholder='In SGD'
-            >
-            </InputNumber>
+              style={{ width: 150 }}
+              placeholder='In SGD'
+            />
           </Form.Item>
           <Form.Item
-          label="Location"
-          name="location"
-          value= {location}
-          onValuesChange={(e) => setLocation(e.target.value)}
-          rules={
-            [
-              {
-                required: true,
-                message: 'Please select a location.',
-              }
-            ]
-          }
+            label="Location"
+            name="location"
+            value= {location}
+            onValuesChange={(e) => setLocation(e.target.value)}
+            rules={[
+                {
+                  required: true,
+                  message: 'Please select a location.',
+                }
+            ]}
           >
             <Select
-            style={{ width: 150 }}
-            placeholder="Punggol"
+              style={{ width: 150 }}
+              placeholder="Punggol"
             >
-              <Select.Option value="Punggol">Punggol</Select.Option>
-              <Select.Option value="Hougang">Hougang</Select.Option>
-              <Select.Option value="Woodlands">Woodlands</Select.Option>
-              <Select.Option value="Queenstown">Queenstown</Select.Option>
-              <Select.Option value="Bedok">Bedok</Select.Option>
-              <Select.Option value="Choa Chu Kang">Choa Chu Kang</Select.Option>
-              <Select.Option value="Redhill">Redhill</Select.Option>
-              <Select.Option value="Lakeside">Lakeside</Select.Option>
-              <Select.Option value="Bukit Panjang">Bukit Panjang</Select.Option>
-              <Select.Option value="Kallang">Kallang</Select.Option>
-              <Select.Option value="Marymount">Marymount</Select.Option>
-              <Select.Option value="Commonwealth">Commonwealth</Select.Option>
-              <Select.Option value="Dover">Dover</Select.Option>
-              <Select.Option value="Kallang">Kallang</Select.Option>
+              <Select.Option
+                value="Punggol"
+              >
+                Punggol
+              </Select.Option>
+              <Select.Option
+                value="Hougang"
+              >
+                Hougang
+              </Select.Option>
+              <Select.Option 
+                value="Woodlands"
+              >
+                Woodlands
+              </Select.Option>
+              <Select.Option 
+                value="Queenstown"
+              >
+                Queenstown
+              </Select.Option>
+              <Select.Option 
+                value="Bedok"
+              >
+                Bedok
+              </Select.Option>
+              <Select.Option 
+                value="Choa Chu Kang"
+              >
+                Choa Chu Kang
+              </Select.Option>
+              <Select.Option 
+                value="Redhill"
+              >
+                Redhill
+              </Select.Option>
+              <Select.Option 
+                value="Lakeside"
+              >
+                Lakeside
+              </Select.Option>
+              <Select.Option 
+                value="Bukit Panjang"
+              >
+                Bukit Panjang
+              </Select.Option>
+              <Select.Option 
+                value="Kallang"
+              >
+                Kallang
+              </Select.Option>
+              <Select.Option 
+                value="Marymount"
+              >
+                Marymount
+              </Select.Option>
+              <Select.Option 
+                value="Commonwealth"
+              >
+                Commonwealth
+              </Select.Option>
+              <Select.Option 
+                value="Dover"
+              >
+                Dover
+              </Select.Option>
             </Select>
           </Form.Item>
           <Form.Item
-          label="Room Type"
-          name="roomtype"
-          value= {roomtype}
-          onValuesChange= {(e) => setRoomType(e.target.value)}
-          rules={
-            [
-              {
-                required: true,
-                message: 'Please select a room type.',
-              }
-            ]
-          }
+            label="Room Type"
+            name="roomtype"
+            value= {roomtype}
+            onValuesChange= {
+              (e) => setRoomType(e.target.value)
+            }
+            rules={[
+                {
+                  required: true,
+                  message: 'Please select a room type.',
+                }
+            ]}
           >
             <Select
-            style={{ width: 150 }}
-            placeholder="3 Room"
+              style={{ width: 150 }}
+              placeholder="3 Room"
             >
-              <Select.Option value="2 Room Flexi">Two Room Flexi</Select.Option>
-              <Select.Option value="3 Room">Three Room</Select.Option>
-              <Select.Option value="4 Room">Four Room</Select.Option>
-              <Select.Option value="5 Room">Five Room</Select.Option>
+              <Select.Option
+                value="2 Room Flexi"
+              >
+                Two Room Flexi
+              </Select.Option>
+              <Select.Option 
+                value="3 Room"
+              >
+                Three Room
+              </Select.Option>
+              <Select.Option 
+                value="4 Room"
+              >
+                Four Room
+              </Select.Option>
+              <Select.Option 
+                value="5 Room"
+              >
+                Five Room
+              </Select.Option>
             </Select>
           </Form.Item>
           <Button type="primary"
-          icon={<SearchOutlined />}
-          htmlType="submit"
+            icon={<SearchOutlined />}
+            htmlType="submit"
           >
-              Search
+            Search
           </Button>
         </Form>
       </div>
     </div>
   );
 }
+
 export default SearchBox;
+
 export {result};
 
 

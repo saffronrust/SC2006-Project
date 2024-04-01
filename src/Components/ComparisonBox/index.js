@@ -1,8 +1,7 @@
-import { Form, Button, Typography, message } from 'antd';
+import { Form, Button, Typography, message, AutoComplete } from 'antd';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
-import { AutoComplete } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { addCompareResultsToFirebase } from '../../Controllers/Database';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +12,6 @@ function ComparisonBox() {
     const navigate = useNavigate();
 
     const [flats, setFlats] = useState([]);
-
     const [comparedFlats, setComparedFlats] = useState(flats);
 
     useEffect(() => {
@@ -66,7 +64,11 @@ function ComparisonBox() {
     return (
         <div class = 'horizontalContainer'>
             <div>
-                <Typography.Title level={2}>Compare Houses</Typography.Title>
+                <Typography.Title
+                    level={2}
+                >
+                    Compare Houses
+                </Typography.Title>
                 <Form
                     labelCol={{
                         span: 14,
@@ -92,7 +94,7 @@ function ComparisonBox() {
                         ]}
                         onValuesChange={(e1) => setFlatName1(e1.target.value)}
                     >
-                            <AutoComplete
+                        <AutoComplete
                             style={{
                                 width: 200,
                             }}
@@ -101,7 +103,7 @@ function ComparisonBox() {
                             filterOption={(inputValue, option) =>
                                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                             }
-                            />
+                        />
                     </Form.Item>
                     <Form.Item
                         label="Second House Name"
@@ -115,7 +117,7 @@ function ComparisonBox() {
                         ]}
                         onValuesChange={(e2) => setFlatName2(e2.target.value)}
                     >
-                            <AutoComplete
+                        <AutoComplete
                             style={{
                                 width: 200,
                             }}
@@ -124,13 +126,15 @@ function ComparisonBox() {
                             filterOption={(inputValue, option) =>
                                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                             }
-                            />
+                        />
                     </Form.Item>
                     <Form.Item>
                         <Button
                             type="primary"
                             htmlType="submit"
-                            icon={<SearchOutlined />}
+                            icon={
+                                <SearchOutlined />
+                            }
                         >
                             Submit
                         </Button>

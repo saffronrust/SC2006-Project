@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import { result } from "../SearchBox";
 
 function AppHeader() {
+
     const navigate = useNavigate();
 
     const onMenuClick = (item) => {
@@ -64,54 +65,77 @@ function AppHeader() {
     return (
         <div className="appHeader">
             <Menu
-            className="appMenu"
-            onClick={onMenuClick}
-            mode = "horizontal"
-            style={{ minWidth: 0, flex: "auto" }}
-                items = {[
+              className="appMenu"
+              onClick={onMenuClick}
+              mode = "horizontal"
+              style={{ minWidth: 0, flex: "auto" }}
+              items = {[
                 {
-                    icon: <HomeFilled ref={ref1}/>,
+                    icon: <HomeFilled
+                            ref={ref1}
+                          />,
                     key: "",
                 },
                 {
                     label: "Search",
-                    icon: <SearchOutlined ref={ref2}/>,
+                    icon: <SearchOutlined
+                            ref={ref2}
+                          />,
                     key: "search",
                 },
                 {
                     label: "Calculator",
-                    icon: <CalculatorFilled ref={ref3}/>,
+                    icon: <CalculatorFilled
+                            ref={ref3}
+                          />,
                     key: "calculator",
                 },
                 {
                     label: "Compare",
-                    icon: <SlidersFilled ref={ref4}/>,
+                    icon: <SlidersFilled
+                            ref={ref4}
+                          />,
                     key: "compare",
                 },
                 {
                     label: "Favourites",
-                    icon: <HeartFilled ref={ref5}/>,
+                    icon: <HeartFilled
+                            ref={ref5}
+                          />,
                     key: "favourites",
                 },
-            ]}
+              ]}
             />
             
-            <Typography.Title className="title">SimplyStay!</Typography.Title>
+            <Typography.Title
+              className="title"
+            >
+              SimplyStay!
+            </Typography.Title>
 
             <Button
-            className="tourbutton"
-            type="primary"
-            onClick={() => setOpen(true)}>
-                Begin Tour
+              className="tourbutton"
+              type="primary"
+              onClick={
+                () => setOpen(true)
+              }
+            >
+              Begin Tour
             </Button>
 
-            <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
+            <Tour
+              open={open}
+              onClose={
+                () => setOpen(false)
+              }
+              steps={steps}
+            />
 
             <UserOutlined
             className="loginIcon"
             onClick={onLoginIconClick}
             ref={ref6}
-            ></UserOutlined>
+            />
         </div>
     );
 }

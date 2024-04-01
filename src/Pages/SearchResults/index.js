@@ -9,7 +9,7 @@ function SearchResults() {
                 </div>
             </div>
         </div>
-      )
+    )
 }
 
 export default SearchResults;
