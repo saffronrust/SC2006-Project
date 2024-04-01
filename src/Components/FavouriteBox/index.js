@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { List, Modal, Button, Empty, Result, Typography } from 'antd';
+import { List, Modal, Button, Empty, Result, Typography, notification } from 'antd';
 import MapBox from "../MapBox";
 import { fav } from '../SearchResultsBox';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
+import { DeleteTwoTone } from '@ant-design/icons';
 
 const FavouriteBox = () => {
 
@@ -14,6 +15,7 @@ const FavouriteBox = () => {
     const [position, setPosition] = useState('bottom');
     const [align, setAlign] = useState('center');
     const [currentflat, setcurrentflat] = useState(fav[0]);
+    const [favflat, setfavflat] = useState(fav);
 
     const [open, setOpen] = useState(false);
     const showModal = (flat) => {
@@ -24,6 +26,19 @@ const FavouriteBox = () => {
     const handleOk = () => {
         setOpen(false);
     };
+
+    const clickdelete = (flat) => {
+        fav.filter(x => x.id!==flat.id)
+        favflat.map(favs=>(
+            <li key={favs.id}>
+                {setfavflat(favflat.filter(x => x.id!==flat.id))}
+            </li>
+        ))
+        notification.warning({
+            message: 'Flat removed!',
+            description: flat.name+' has been successfully removed from Favourites!',
+        });
+    }
 
     if (!user) {
         return (
@@ -74,13 +89,16 @@ const FavouriteBox = () => {
                     align,
                     defaultPageSize:5
                 }}
-                dataSource={fav}
+                dataSource={favflat}
                 renderItem={(flat) => (
                     <List.Item>
                         <List.Item.Meta
                             title={<Button type='link' onClick={()=>showModal(flat)}>{flat.name}</Button>}
                             description={flat.location}
                         />
+                        <Button
+                        icon={<DeleteTwoTone />}
+                        onClick={()=>clickdelete(flat)}/>
                     </List.Item>
                 )}
                 />
@@ -98,27 +116,17 @@ const FavouriteBox = () => {
                         </Button>
                     }
                 >
-                    <p>
-                        Location: {currentflat.location}
-                    </p>
-                    <p>
-                        Max Price: ${currentflat.maxprice}
-                    </p>
-                    <p>
-                        Min Price: ${currentflat.minprice}
-                    </p>
-                    <p>
-                        Room Type:
+                    <p><Button icon={<DeleteTwoTone />} onClick={()=>clickdelete(currentflat)}/></p>
+                    <p>Location: {currentflat.location}</p>
+                    <p>Max Price: ${currentflat.maxprice}</p>
+                    <p>Min Price: ${currentflat.minprice}</p>
+                    <p>Room Type:
                         {currentflat.roomtype.map((room) => (
                             <p>{room}</p>
                         ))}
                     </p>
-                    <p>
-                        Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes
-                    </p>
-                    <p>
-                        {MapBox(currentflat.lat,currentflat.lng,currentflat.Street)}
-                    </p>
+                    <p>Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes</p>
+                    <p>{MapBox(currentflat.lat,currentflat.lng,currentflat.Street)}</p>
                 </Modal>
             </>
         );
