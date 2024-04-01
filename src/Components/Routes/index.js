@@ -9,6 +9,7 @@ import Signup from "../../Pages/Signup";
 import UserAccount from "../../Pages/UserAccount";
 import SearchResults from "../../Pages/SearchResults";
 import CompareResults from "../../Pages/CompareResults";
+import Reset from "../../Pages/Reset";
 
 function AppRoutes() {
   return (
@@ -52,6 +53,10 @@ function AppRoutes() {
       <Route
         path="/compareresults"
         element={<CompareResults />}
+      />
+      <Route
+        path="/reset"
+        element={<Reset />}
       />
     </Routes>
   );

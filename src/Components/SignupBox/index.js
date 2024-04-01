@@ -3,9 +3,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { registerWithEmailAndPassword, signInWithGoogle } from "../../Controllers/Database";
-import { Button, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
+import { message } from "antd";
 import "./index.css";
 
 function SignupBox() {
@@ -16,7 +17,18 @@ function SignupBox() {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name || !email || !password) {
+      message.error("Please fill in all the fields!", 1.5)
+      return;
+    }
+    if (!email.includes("@")) {
+      message.error("Invalid email address!", 1.5)
+      return;
+    }
+    if (password.length < 8) {
+      message.error("Password must be at least 8 characters long!", 1.5)
+      return;
+    }
     registerWithEmailAndPassword(name, email, password);
     navigate("/");
   };
@@ -31,27 +43,62 @@ function SignupBox() {
       <div className="register__container">
         <Title level={1}>Welcome To SimplyStay!</Title>
         <Title level={4}>Sign up using your email or Google account</Title>
-        <Input
-          type="text"
-          className="register__textBox"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
-        />
-        <Input
-          type="text"
-          className="register__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <Input
-          type="password"
-          className="register__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+        <Form
+          labelCol={{
+            span: 8,
+          }}
+        >
+          <Form.Item
+            label="Full Name"
+            name="name"
+            rules={[
+              {
+                required: true,
+                message: "Please input your name!",
+              },
+            ]}
+          >
+            <Input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="John Appleseed"
+            />
+          </Form.Item>
+          <Form.Item
+            label="E-mail Address"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input your email!",
+              },
+            ]}
+          >
+            <Input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
+            />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}
+          >
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Item>
+        </Form>
         <Button
           className="register__btn"
           type="primary"
@@ -70,7 +117,6 @@ function SignupBox() {
         </Button>
 
         <div>
-          {/* <Text>Already have an account? </Text><Link to="/login">Login</Link> */}
           <Text>Already have an account? </Text><Link to="/login">Login</Link>
         </div>
       </div>

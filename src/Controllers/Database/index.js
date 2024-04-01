@@ -3,7 +3,7 @@ import { collection, addDoc, getDocs, query, deleteDoc, where } from 'firebase/f
 import { signInWithPopup, signOut } from "firebase/auth";
 import { message } from 'antd';
 import { fav } from '../../Components/SearchResultsBox';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
   function addCompareResultsToFirebase(comparedflats) {
     for (let i = 0; i < comparedflats.length; i++) {
@@ -79,7 +79,17 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "fire
       message.success('Registration successful!', 2);
     } catch (err) {
       console.error(err);
-      message.error('Register failed. Please try again.', 2);
+      message.error('Registration failed. Please try again.', 2);
+    }
+  };
+
+  const sendPasswordReset = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      message.success('Password reset email sent!', 2);
+    } catch (err) {
+      console.error(err);
+      message.error('Password reset failed. Please try again.', 2);
     }
   };
 
@@ -96,4 +106,5 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "fire
     logout,
     logInWithEmailAndPassword,
     registerWithEmailAndPassword,
+    sendPasswordReset,
   };

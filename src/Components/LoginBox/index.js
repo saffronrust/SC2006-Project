@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import { signInWithGoogle, logInWithEmailAndPassword } from "../../Controllers/Database";
-import { Button, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 import "./index.css";
@@ -25,22 +25,47 @@ function LoginBox() {
   return (
     <div className="login">
       <div className="login__container">
-      <Title level={1}>Log In To SimplyStay</Title>
+      <Title level={1}>Log In To SimplyStay!</Title>
       <Title level={4}>Welcome back! Login to your account</Title>
-        <Input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <Input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+      <Form
+        labelCol={{
+          span: 8,
+        }}
+      >
+        <Form.Item
+          label="E-mail Address"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Please input your email!",
+            },
+          ]}
+        >
+          <Input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Item>
+        </Form>
         <Button
           className="login__btn"
           type="primary"
