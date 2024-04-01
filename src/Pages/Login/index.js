@@ -4,7 +4,7 @@ function Login() {
   return (
     <div className="background">
       <div className="translucentbox">
-        <div className="login">
+        <div className="loginbox">
           <LoginBox />
         </div>
       </div>

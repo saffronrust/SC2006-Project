@@ -3,6 +3,7 @@ import { collection, addDoc, getDocs, query, deleteDoc, where } from 'firebase/f
 import { signInWithPopup, signOut } from "firebase/auth";
 import { message } from 'antd';
 import { fav } from '../../Components/SearchResultsBox';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
   function addCompareResultsToFirebase(comparedflats) {
     for (let i = 0; i < comparedflats.length; i++) {
@@ -55,6 +56,33 @@ import { fav } from '../../Components/SearchResultsBox';
     }
   };
   
+  const logInWithEmailAndPassword = async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      message.success('Login successful!', 2);
+    } catch (err) {
+      console.error(err);
+      message.error('Login failed. Please try again.', 2);
+    }
+  };
+  
+  const registerWithEmailAndPassword = async (name, email, password) => {
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name,
+        authProvider: "local",
+        email,
+      });
+      message.success('Registration successful!', 2);
+    } catch (err) {
+      console.error(err);
+      message.error('Register failed. Please try again.', 2);
+    }
+  };
+
   const logout = () => {
     message.success('Logout successful!', 2);
     fav.length = 0;
@@ -66,4 +94,6 @@ import { fav } from '../../Components/SearchResultsBox';
     removeCompareResultsFromDatabase,
     signInWithGoogle,
     logout,
+    logInWithEmailAndPassword,
+    registerWithEmailAndPassword,
   };

@@ -5,6 +5,7 @@ import Calculator from "../../Pages/Calculator";
 import Compare from "../../Pages/Compare";
 import Favourites from "../../Pages/Favourites";
 import Login from "../../Pages/Login";
+import Signup from "../../Pages/Signup";
 import UserAccount from "../../Pages/UserAccount";
 import SearchResults from "../../Pages/SearchResults";
 import CompareResults from "../../Pages/CompareResults";
@@ -35,6 +36,10 @@ function AppRoutes() {
       <Route
         path="/login"
         element={<Login />}
+      />
+      <Route
+        path="/signup"
+        element={<Signup />}
       />
       <Route
         path="/useraccount"

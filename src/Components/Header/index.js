@@ -57,7 +57,7 @@ function AppHeader() {
       },
       {
         title: 'Login',
-        description: 'Login to the website using your Google account.',
+        description: 'Login or signup to the website using your email or Google account.',
         target: () => ref6.current,
       },
     ];
@@ -120,7 +120,7 @@ function AppHeader() {
                 () => setOpen(true)
               }
             >
-              Begin Tour
+              Guide
             </Button>
 
             <Tour
