@@ -1,5 +1,6 @@
-import { Form, InputNumber, Button, Radio, Typography } from "antd";
+import { Form, InputNumber, Button, Radio } from "antd";
 import React, { useEffect, useState } from "react";
+import { Typography } from "antd";
 
 const CalculatorBox = () => {
   const [age, setAge] = useState("");
@@ -83,11 +84,7 @@ const CalculatorBox = () => {
 
   function recommend() {
     if (age >= 65) {
-<<<<<<< HEAD
-      setRecommendation("Sorry, you are ineligible to BTO");
-=======
       setRecommendation("Sorry, you are ineligible to BTO...");
->>>>>>> nigel
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -96,10 +93,7 @@ const CalculatorBox = () => {
         age >= 21 &&
         1 <= grossMonthly <= 14000 &&
         check !== 0) ||
-      (age >= 35 &&
-        married === 0 &&
-        1 <= grossMonthly <= 7000&&
-        check !== 0)
+      (age >= 35 && married === 0 && 1 <= grossMonthly <= 7000 && check !== 0)
     ) {
       paymentcash();
       paymentcpf();
@@ -107,7 +101,7 @@ const CalculatorBox = () => {
       setEligibility(true);
       return recommendation;
     } else {
-      setRecommendation("Sorry, you are ineligible to BTO");
+      setRecommendation("Sorry, you are ineligible to apply for BTO...");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -257,9 +251,7 @@ const CalculatorBox = () => {
   }
 
   function calculategrants() {
-    if (age >= 35 &&
-      married === 0 &&
-      grossMonthly <= 7000) {
+    if (age >= 35 && married === 0 && grossMonthly <= 7000) {
       Estimationsingle(grossMonthly);
       return monthlyPayment + saving + cpf;
     } else if (
@@ -277,11 +269,7 @@ const CalculatorBox = () => {
   return (
     <div className="calculatorPage">
       <div className="calculatorForm">
-      <Typography.Title
-        level={2}
-      >
-        Check Your BTO Eligibility
-      </Typography.Title>
+      <Typography.Title level={2}>Check Your BTO Eligibility</Typography.Title>
         <Form
           onSubmit={
             (e) => e.preventDefault()
@@ -312,10 +300,7 @@ const CalculatorBox = () => {
             ]}
             onChange={(e) => setAge(e.target.value)}
           >
-            <InputNumber
-              style={{ width: 150 }}
-              placeholder="Age"
-            />
+            <InputNumber style={{ width: 150 }} placeholder="Age" />
           </Form.Item>
 
           <Form.Item
@@ -328,21 +313,13 @@ const CalculatorBox = () => {
             },
           ]}
           >
-            <Radio.Group
-              name="maritalstatus"
+            <Radio.Group name="maritalstatus"
+            //defaultValue={1}
             >
-              <Radio
-                value={1}
-                onChange={handleMarried}
-                check={married === 1}
-              >
+              <Radio value={1} onChange={handleMarried} check={married === 1}>
                 Yes
               </Radio>
-              <Radio
-                value={0}
-                onChange={handleMarried}
-                check={married === 0}
-              >
+              <Radio value={0} onChange={handleMarried} check={married === 0}>
                 No
               </Radio>
             </Radio.Group>
@@ -429,11 +406,10 @@ const CalculatorBox = () => {
             />
           </Form.Item>
 
-          <Form.Item
-            wrapperCol={{ offset: 9, span: 16 }}
-          >
+          <Form.Item wrapperCol={{ offset: 9, span: 16 }}>
             <Button
               type="primary"
+              // icon={<SearchOutlined />}
               htmlType="submit"
               onClick={() => {
                 calculategrants();
@@ -447,119 +423,26 @@ const CalculatorBox = () => {
           </Form.Item>
         </Form>
       </div>
-<<<<<<< HEAD
-      <div className="calculatorResult">
-        <Typography.Title
-          level={3}
-        >
-          {recommendation}
-        </Typography.Title>
-        {eligibility && (
-          <>
-            <Typography.Title
-              level={4}
-            >
-              Estimated Buying Power:
-            </Typography.Title>
-=======
-      <div>
+      <div className="calcBg">
         <h3>{recommendation}</h3>
 
         {eligibility && (
           <div className="calculatorResult">
             <h3 className="resultTitle">Estimated Buying Power:</h3>
->>>>>>> nigel
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment.toFixed(2))}
             </p>
           </div>
         )}
         {eligibility && (
-<<<<<<< HEAD
-          <>
-            <Typography.Title
-              level={4}
-            >
-              Downpayment required(15%):
-            </Typography.Title>
-=======
           <div className="calculatorResult">
             <h3 className="resultTitle">Downpayment required(15%):</h3>
->>>>>>> nigel
             <p className="resultInfo">
               $ {parseFloat(monthlyPayment * (0.15).toFixed(2))}
             </p>
           </div>
         )}
-
         {eligibility && (
-<<<<<<< HEAD
-          <>
-            <Typography.Title
-              level={4}
-            >
-              Option 1. Downpayment using Cash ($):
-            </Typography.Title>
-            <p className="resultInfo">
-              {paycash}
-            </p>
-          </>
-        )}
-        {eligibility && (
-          <>
-            <Typography.Title
-              level={4}
-            >
-              Option 1. Downpayment using CPF ($):
-            </Typography.Title>
-            <p className="resultInfo">
-              {paycpf}
-            </p>
-          </>
-        )}
-      </div>
-      {eligibility && (
-        <div>
-          <div>
-            <Typography.Title
-              level={3}
-            >
-              Grants
-            </Typography.Title>
-            <Typography.Title 
-              level={4}
-            >
-              Step-Up CPF Housing Grant ($):
-            </Typography.Title>
-            <p className="resultInfo">
-              {stepupGrant}
-            </p>
-            <Typography.Title
-              level={4}
-            >
-              EHG Grant ($):
-            </Typography.Title>
-            <p className="resultInfo">
-              {enhanceCouple + enhancesSingle}
-            </p>
-            <Typography.Title
-              level={4}
-            >
-              Total Grant ($):
-            </Typography.Title>
-            <p className="resultInfo">
-              {enhanceCouple + enhancesSingle + stepupGrant}
-            </p>
-          </div>
-          <Typography.Title
-              level={4}
-            >
-              Recommended Renovation Cost ($):
-            </Typography.Title>
-          <p className="resultInfo">
-            ${renovate}
-          </p>
-=======
           <div className="calculatorResult">
             <h3 className="resultTitle">Option 1. Downpayment using Cash ($):</h3>
             <p className="resultInfo">{paycash}</p>
@@ -583,29 +466,7 @@ const CalculatorBox = () => {
               <p className="resultInfo">{enhanceCouple + enhancesSingle + stepupGrant}</p>
           <h3 className="resultTitle">Recommended Renovation Cost ($):</h3>
           <p className="resultInfo"> ${renovate}</p>
->>>>>>> nigel
         </div>
-      //   <div className="calculatorGrant">
-      //   <Typography.Title level={3}>Grants</Typography.Title>
-      //   <table>
-      //     <tr>
-      //         <th>Step-Up CPF Housing Grant ($):</th>
-      //         <td className="resultInfo">{stepupGrant}</td>
-      //     </tr>
-      //     <tr>
-            
-      //         <th>EHG Grant ($):</th>
-      //         <td className="resultInfo">{enhanceCouple + enhancesSingle}</td>
-      //     </tr>
-      //     <tr>
-
-      //         <th>Total Grant ($):</th>
-      //         <td className="resultInfo">{enhanceCouple + enhancesSingle + stepupGrant}</td>
-      //     </tr>
-      //   </table>
-      //   <Typography.Title level={4}>Recommended Renovation Cost ($):</Typography.Title>
-      //   <p className="resultInfo"> ${renovate}</p>
-      // </div>
       )}
     </div>
   );
