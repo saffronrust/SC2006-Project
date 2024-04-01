@@ -7,7 +7,6 @@ import { auth, db } from "../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button } from "antd";
 import { doc, deleteDoc } from "firebase/firestore";
-import Func from "../../Components/wonkymapsolver"
 
 function Home() {
 
@@ -52,7 +51,6 @@ function Home() {
                 type="primary"
                 onClick={() => navigate("/search")}>Begin Your Search!</Button>
             </div>
-            <Func />
         </div>
     )
 }

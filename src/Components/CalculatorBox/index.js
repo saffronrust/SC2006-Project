@@ -7,7 +7,6 @@ const CalculatorBox = () => {
   const [married, setMarried] = useState(1);
   const [grossMonthly, setGrossMonthly] = useState("");
   const [lumpsum, setLumpsum] = useState("");
-  const [disposable, setDisposable] = useState(0);
   const [saving, setSaving] = useState("");
   const [cpf, setCPF] = useState("");
   const [enhancesSingle, setEnhancesSingle] = useState(0);
@@ -35,7 +34,6 @@ const CalculatorBox = () => {
     console.log(married);
     console.log(grossMonthly);
     console.log(lumpsum);
-    console.log(disposable);
     console.log(cpf);
     console.log(saving);
     console.log(monthlyPayment);
@@ -85,7 +83,7 @@ const CalculatorBox = () => {
   }
 
   function recommend() {
-    if (age >= 65 || disposable < 0) {
+    if (age >= 65) {
       setRecommendation("Sorry, you are ineligible to bto...");
       setStepupGrant(0);
       setEnhancesSingle(0);
@@ -113,8 +111,6 @@ const CalculatorBox = () => {
 
   function calculateLoanAmount() {
     setCheck(grossMonthly);
-    // setDisposable(grossMonthly - lumpsum);
-    // return disposable;
   }
 
   function Estimationsingle() {
@@ -256,7 +252,7 @@ const CalculatorBox = () => {
 
   function calculategrants() {
     if (age >= 35 && married === 0 && grossMonthly <= 7000) {
-      Estimationsingle(grossMonthly, disposable);
+      Estimationsingle(grossMonthly);
       return monthlyPayment + saving + cpf;
     } else if (
       age >= 21 &&
@@ -264,7 +260,7 @@ const CalculatorBox = () => {
       married === 1 &&
       grossMonthly <= 14000
     ) {
-      Estimationcouple(grossMonthly, disposable);
+      Estimationcouple(grossMonthly);
       return monthlyPayment + saving + cpf;
     } else setMonthlyPayment(0);
     return monthlyPayment;
@@ -370,28 +366,6 @@ const CalculatorBox = () => {
               placeholder="Enter amount here"
             />
           </Form.Item>
-
-          {/* <Form.Item
-            label="Disposable Income"
-            name="Disposable Income"
-            value={disposable}
-            rules={[
-              {
-                type: "integer",
-                min: 0,
-                message: "Please input a valid amount.",
-                required: true,
-              },
-            ]}
-            onChange={(e) => setDisposable(e.target.value)}
-          >
-            <InputNumber
-              style={{ width: 150 }}
-              placeholder="Enter amount here"
-              // readOnly='true'
-            />
-          </Form.Item> */}
-
           <Form.Item
             label="CPF"
             name="CPF"

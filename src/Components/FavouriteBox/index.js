@@ -22,7 +22,7 @@ const FavouritePage = () => {
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} 
                 description={
                     <span>
-                    No Favourite Houses currently
+                    No Favourite Houses
                     </span>
                 }
             />
@@ -58,10 +58,6 @@ const FavouritePage = () => {
                     </Button>
                 }
                 >
-                    {/* <div style={{
-                    // display:'flex',
-                    // justifyContent:'center'
-                    textAlign: 'center'}}> */}
                         <p>Location: {currentflat.location}</p>
                         <p>Max Price: ${currentflat.maxprice}</p>
                         <p>Min Price: ${currentflat.minprice}</p>
@@ -72,7 +68,6 @@ const FavouritePage = () => {
                         </p>
                         <p>Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes</p>
                         <p>{MapBox(currentflat.lat,currentflat.lng,currentflat.Street)}</p>
-                    {/* </div> */}
                 </Modal>
             </>
             );

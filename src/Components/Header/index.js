@@ -1,23 +1,20 @@
 import { CalculatorFilled, HeartFilled, HomeFilled, SearchOutlined, SlidersFilled, UserOutlined } from "@ant-design/icons";
-import { Menu, Typography } from "antd";
+import { Menu, Typography, Button, Tour } from "antd";
 import { useNavigate } from 'react-router-dom';
-import { removeCompareResultsFromDatabase, removeSearchResultsFromDatabase } from "../../Controllers/Database";
+import { removeCompareResultsFromDatabase } from "../../Controllers/Database";
 import { useState, useRef } from "react";
-import { Button, Tour } from "antd";
 import { result } from "../SearchBox";
 
 function AppHeader() {
     const navigate = useNavigate();
 
     const onMenuClick = (item) => {
-        // removeSearchResultsFromDatabase();
         removeCompareResultsFromDatabase();
         result.length = 0;
         navigate(`/${item.key}`);
     };
 
     const onLoginIconClick = () => {
-        // removeSearchResultsFromDatabase();
         removeCompareResultsFromDatabase();
         result.length = 0;
         navigate("/login")
@@ -96,10 +93,6 @@ function AppHeader() {
                     icon: <HeartFilled ref={ref5}/>,
                     key: "favourites",
                 },
-                // {
-                //     label: "Test",
-                //     key: "test",
-                // },
             ]}
             />
             

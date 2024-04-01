@@ -1,4 +1,4 @@
-import FavouritePage from '../../Components/FavouritePage'
+import FavouritePage from '../../Components/FavouriteBox'
 
 function Favourites() {
     return (
