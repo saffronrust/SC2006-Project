@@ -6,6 +6,9 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 ## Folder Organisation
 text
 
+## Link To Vercel App
+https://simply-stay.vercel.app/
+
 ## How To Setup
 1. Clone the repository
 2. Go to the file directory with command prompt
