@@ -53,7 +53,11 @@ FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
 <img src = "http://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black" alt = "React">
 <img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
 <img src = "http://img.shields.io/badge/nodedotjs-339933?style=flat-square&logo=nodedotjs&logoColor=black" alt = "nodejs">
+</div>
+<div>
+<img src="http://img.shields.io/badge/Javascript-fcd400?style=flat-square&logo=javascript&logoColor=black" alt="Javascript">
 <img src = "http://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=black" alt = "npm">
+<img src="https://img.shields.io/badge/React Router-black?style=flat-square&logo=reactrouter&logoColor=CA4245" alt="React-Router">
 </div>
 
 ## Deployed App (Non-stable)
