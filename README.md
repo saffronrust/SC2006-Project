@@ -9,7 +9,7 @@ text
 ## Tech Stack
 <div>
 <img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
-<img src = "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt = "React">
+<img src = "http://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black" alt = "React">
 </div>
 
 ## Deployed App (Non-stable)
