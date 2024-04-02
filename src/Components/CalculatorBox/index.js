@@ -4,7 +4,7 @@ import { Typography } from "antd";
 
 const CalculatorBox = () => {
   const [age, setAge] = useState("");
-  const [married, setMarried] = useState(1);
+  const [married, setMarried] = useState(true);
   const [grossMonthly, setGrossMonthly] = useState("");
   const [lumpsum, setLumpsum] = useState("");
   const [saving, setSaving] = useState("");
@@ -41,8 +41,8 @@ const CalculatorBox = () => {
 
   function paymentcpf() {
     if (
-      (married === 1 && age >= 21 && grossMonthly <= 14000) ||
-      (age >= 35 && married === 0 && grossMonthly <= 7000)
+      (married === true && age >= 21 && grossMonthly <= 14000) ||
+      (age >= 35 && married === false && grossMonthly <= 7000)
     ) {
       if (cpf >= 0.15 * grossMonthly * 12 * 5) {
         setPayCPF("Sufficient CPF");
@@ -57,8 +57,8 @@ const CalculatorBox = () => {
 
   function paymentcash() {
     if (
-      (married === 1 && age >= 21 && grossMonthly <= 14000) ||
-      (age >= 35 && married === 0 && grossMonthly <= 7000)
+      (married === true && age >= 21 && grossMonthly <= 14000) ||
+      (age >= 35 && married === false && grossMonthly <= 7000)
     ) {
       if (saving >= 0.15 * grossMonthly * 12 * 5) {
         setPayCash("You have enough downpayment for BTO using cash!");
@@ -73,8 +73,8 @@ const CalculatorBox = () => {
 
   function rec_recommend() {
     if (
-      (married === 1 && age >= 21 && grossMonthly <= 14000) ||
-      (age >= 35 && married === 0 && grossMonthly <= 7000)
+      (married === true && age >= 21 && grossMonthly <= 14000) ||
+      (age >= 35 && married === false && grossMonthly <= 7000)
     ) {
       setRenovate(6 * grossMonthly);
       return renovate;
@@ -83,25 +83,28 @@ const CalculatorBox = () => {
   }
 
   function recommend() {
-    if (age >= 65) {
-      setRecommendation("Sorry, you are ineligible to BTO...");
+    if(grossMonthly>14000) {
+      setRecommendation("You are ineligible to apply for BTO because you have exceeded the income ceiling of $14000");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
-    } else if (
-      (married === 1 &&
+      setEligibility(false);
+    }
+    else if (
+      (married === true &&
         age >= 21 &&
         1 <= grossMonthly <= 14000 &&
         check !== 0) ||
-      (age >= 35 && married === 0 && 1 <= grossMonthly <= 7000 && check !== 0)
+      (age >= 35 && married === false && 1 <= grossMonthly <= 7000 && check !== 0)
     ) {
       paymentcash();
       paymentcpf();
       setRecommendation("Congratulations, you are eligible to apply for BTO!");
       setEligibility(true);
       return recommendation;
-    } else {
-      setRecommendation("Sorry, you are ineligible to apply for BTO...");
+    } 
+    else if(age<35 && married===false) {
+      setRecommendation("You are ineligible to apply for BTO as a single below 35 years old");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -167,10 +170,10 @@ const CalculatorBox = () => {
       return enhanceCouple;
     } else if ((grossMonthly > 5000) & (grossMonthly <= 5500)) {
       setEnhanceCouple(40000);
-      // return enhanceCouple;
+      return enhanceCouple;
     } else if ((grossMonthly > 5500) & (grossMonthly <= 6000)) {
       setEnhanceCouple(35000);
-      // return enhanceCouple;
+      return enhanceCouple;
     } else if ((grossMonthly > 6000) & (grossMonthly <= 6500)) {
       setEnhanceCouple(30000);
       return enhanceCouple;
@@ -251,13 +254,13 @@ const CalculatorBox = () => {
   }
 
   function calculategrants() {
-    if (age >= 35 && married === 0 && grossMonthly <= 7000) {
+    if (age >= 35 && married === false && grossMonthly <= 7000) {
       Estimationsingle(grossMonthly);
       return monthlyPayment + saving + cpf;
     } else if (
       age >= 21 &&
       age < 65 &&
-      married === 1 &&
+      married === true &&
       grossMonthly <= 14000
     ) {
       Estimationcouple(grossMonthly);
@@ -304,7 +307,7 @@ const CalculatorBox = () => {
           </Form.Item>
 
           <Form.Item
-          label="Married"
+          label="Applying with partner"
           name="married"
           value={married}
           rules={[
@@ -316,17 +319,17 @@ const CalculatorBox = () => {
             <Radio.Group name="maritalstatus"
             //defaultValue={1}
             >
-              <Radio value={1} onChange={handleMarried} check={married === 1}>
+              <Radio value={true} onChange={handleMarried} check={married === true}>
                 Yes
               </Radio>
-              <Radio value={0} onChange={handleMarried} check={married === 0}>
+              <Radio value={false} onChange={handleMarried} check={married === false}>
                 No
               </Radio>
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item
-            label="Gross Monthly Income"
+          {married && <Form.Item
+            label="Combined Income:"
             name="monthly income"
             value={grossMonthly}
             rules={[
@@ -342,9 +345,29 @@ const CalculatorBox = () => {
           >
             <InputNumber
               style={{ width: 150 }}
-              placeholder="Enter amount here"
+              placeholder="Monthly amount"
             />
-          </Form.Item>
+          </Form.Item>}
+          {!married && <Form.Item
+            label="Gross Income"
+            name="monthly income"
+            value={grossMonthly}
+            rules={[
+              {
+                type: "integer",
+                min: 0,
+                message: "Please input a valid amount.",
+                required: true,
+              },
+            ]}
+            onChange={(e) => setGrossMonthly(e.target.value)}
+            onKeyUp={calculateLoanAmount}
+          >
+            <InputNumber
+              style={{ width: 150 }}
+              placeholder="Monthly amount"
+            />
+          </Form.Item>}
 
           <Form.Item
             label="Monthly Expenses"
@@ -405,7 +428,6 @@ const CalculatorBox = () => {
               placeholder="Enter amount here"
             />
           </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 9, span: 16 }}>
             <Button
               type="primary"
