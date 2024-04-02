@@ -11,22 +11,26 @@ import "./index.css";
 function LoginBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
     if (user) navigate("/useraccount");
-  }, [user, loading]);
+  }, [user, navigate]);
 
   return (
     <div className="login">
       <div className="login__container">
-      <Title level={1}>Log In To SimplyStay!</Title>
-      <Title level={4}>Welcome back! Login to your account</Title>
+      <Title
+        level={1}
+      >
+        Log In To SimplyStay!
+      </Title>
+      <Title
+        level={4}
+      >
+        Welcome back! Login to your account
+      </Title>
       <Form
         labelCol={{
           span: 8,
@@ -74,8 +78,12 @@ function LoginBox() {
         >
           Login
         </Button>
-          <Link to="/reset"><Text>Forgot Password</Text></Link>
-          <br/>
+          <Link to="/reset">
+            <Text>
+              Forgot Password
+            </Text>
+          </Link>
+        <br/>
         <Button
             className="login__btn login__google"
             type="primary"
@@ -87,11 +95,14 @@ function LoginBox() {
         <br/>
         <div>
           <Text>
-            Don't have an account? </Text><Link to="/signup">
+            Don't have an account? </Text>
+          <Link
+            to="/signup"
+          >
             <Text>
-                Sign Up
+              Sign Up
             </Text>
-          </Link> now!
+          </Link>
         </div>
       </div>
     </div>

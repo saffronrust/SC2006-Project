@@ -13,7 +13,7 @@ function SignupBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {
@@ -34,15 +34,22 @@ function SignupBox() {
   };
 
   useEffect(() => {
-    if (loading) return;
     if (user) navigate("/");
-  }, [user, loading]);
+  }, [user, navigate]);
 
   return (
     <div className="register">
       <div className="register__container">
-        <Title level={1}>Welcome To SimplyStay!</Title>
-        <Title level={4}>Sign up using your email or Google account</Title>
+        <Title
+          level={1}
+        >
+          Welcome To SimplyStay!
+        </Title>
+        <Title 
+          level={4}
+        >
+          Sign up using your email or Google account
+        </Title>
         <Form
           labelCol={{
             span: 8,
@@ -103,7 +110,8 @@ function SignupBox() {
           className="register__btn"
           type="primary"
           size="large"
-          onClick={register}>
+          onClick={register}
+        >
           Register
         </Button>
         <br />
@@ -117,7 +125,12 @@ function SignupBox() {
         </Button>
 
         <div>
-          <Text>Already have an account? </Text><Link to="/login">Login</Link>
+          <Text>Already have an account? </Text>
+          <Link
+            to="/login"
+          >
+            Login
+          </Link>
         </div>
       </div>
     </div>

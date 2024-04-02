@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { sendPasswordReset } from "../../Controllers/Database";
 import { Button, Form, Input } from "antd";
@@ -11,24 +10,31 @@ import "./index.css";
 
 function ResetBox() {
   const [email, setEmail] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) return;
     if (user) navigate("/useraccount");
-  }, [user, loading]);
+  }, [user, navigate]);
 
   return (
     <div className="reset">
       <div className="reset__container">
-      <Title level={1}>Forgot Your Password?</Title>
-      <Title level={4}>No worries! Enter your email below to reset!</Title>
+      <Title
+        level={1}
+      >
+        Forgot Your Password?
+      </Title>
+      <Title
+        level={4}
+      >
+        No worries! Enter your email below to reset!
+      </Title>
       <Form
         labelCol={{
           span: 8,
         }}
-        >
+      >
         <Form.Item
           label="E-mail Address"
           name="email"
@@ -46,17 +52,25 @@ function ResetBox() {
           placeholder="E-mail Address"
         />
         </Form.Item>
-        </Form>
+      </Form>
         <Button
-            className="reset__btn"
-            onClick={() => sendPasswordReset(email)}
-            type="primary"
-            size="large"
+          className="reset__btn"
+          onClick={() => sendPasswordReset(email)}
+          type="primary"
+          size="large"
         >
           Send password reset email
         </Button>
         <div>
-          Don't have an account? <Link to="/signup">Sign up</Link> now.
+          <Text>
+            Don't have an account? </Text>
+          <Link
+            to="/signup"
+          >
+            <Text>
+              Sign Up
+            </Text>
+          </Link>
         </div>
       </div>
     </div>
