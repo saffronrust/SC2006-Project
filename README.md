@@ -3,7 +3,7 @@
 ## Project Mission Statement
 In Singapore, buying public housing for the first time can be a daunting task for young adults. As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
 
-## Folder Organisation
+## Folder Organisation and Guide
 ```
 ├── SimplyStay
 |   ├── src
@@ -17,10 +17,14 @@ In Singapore, buying public housing for the first time can be a daunting task fo
         ├── firebase.js
         ├── index.css
         ├── index.js
+|   ├── .gitignore
 |   ├── README.md
 |   ├── package-lock.json
 |   ├── package.json
 ```
+### `src` folder
+The `src` folder contains the Components, Controllers
+
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
