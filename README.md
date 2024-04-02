@@ -4,7 +4,37 @@
 In Singapore, buying public housing for the first time can be a daunting task for young adults. As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
 
 ## Folder Organisation
-text
+```
+├── SimplyStay
+|   ├── src
+        ├── Components
+        ├── Controllers
+        ├── Images
+        ├── Models
+        ├── Pages
+        ├── App.css
+        ├── App.js
+        ├── firebase.js
+        ├── index.css
+        ├── index.js
+|   ├── README.md
+|   ├── package-lock.json
+|   ├── package.json
+```
+
+## Tech Stack
+FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
+<div>
+<img src = "http://img.shields.io/badge/firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt = "Firebase">
+<img src = "http://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black" alt = "React">
+<img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
+<img src = "http://img.shields.io/badge/nodedotjs-339933?style=flat-square&logo=nodedotjs&logoColor=black" alt = "nodejs">
+<img src = "http://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=black" alt = "npm">
+</div>
+
+## Deployed App (Non-stable)
+https://simply-stay.vercel.app/
+NOTE: The vercel app is non-stable, meaning that some features may not work such as the login/signup features. For best performance, localhost is highly recommended.
 
 ## How To Setup
 1. Clone the repository
