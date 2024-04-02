@@ -22,9 +22,29 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 |   ├── package-lock.json
 |   ├── package.json
 ```
-### `src` folder
-The `src` folder contains the Components, Controllers
+#### `Components` folder
+The `Components` folder contains the necessary components needed to make the website function.
 
+#### `Controllers` folder
+The `Controllers` folder contains important app logic for some of the components.
+
+#### `Images` folder
+The `Images` folder contains images used in the website.
+
+#### `Models` folder
+The `Models` folder contains the flats used in the website.
+
+#### `Pages` folder
+The `Pages` folder contains the UI for the website.
+
+#### `App.js` & `App.css`
+The meat of the website.
+
+#### `firebase.js`
+Contains the configuration for our Firestore database.
+
+#### `index.js` & `index.css`
+When `npm start` is called, these two files will be called.
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
