@@ -214,3 +214,8 @@
   margin-bottom: 0;
 }
 
+.incomeMsg {
+  background-color: #d3d3d3;
+  padding: 2px;
+  border-radius: 3px ;
+}
