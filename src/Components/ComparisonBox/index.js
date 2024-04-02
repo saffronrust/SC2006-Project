@@ -62,7 +62,7 @@ function ComparisonBox() {
       }
 
     return (
-        <div class = 'horizontalContainer'>
+        <div className = 'horizontalContainer'>
             <div>
                 <Typography.Title
                     level={2}

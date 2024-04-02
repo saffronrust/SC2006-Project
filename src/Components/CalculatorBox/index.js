@@ -316,10 +316,10 @@ const CalculatorBox = () => {
             <Radio.Group name="maritalstatus"
             //defaultValue={1}
             >
-              <Radio value={1} onChange={handleMarried} check={married === 1}>
+              <Radio value={1} onChange={handleMarried} check= {married === 1 ? 1 : 0}>
                 Yes
               </Radio>
-              <Radio value={0} onChange={handleMarried} check={married === 0}>
+              <Radio value={0} onChange={handleMarried} check={married === 0 ? 1 : 0}>
                 No
               </Radio>
             </Radio.Group>
