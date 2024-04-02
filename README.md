@@ -6,8 +6,13 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 ## Folder Organisation
 text
 
-## Link To Vercel App
+## Tech Stack
+<img src = "https://static-00.iconduck.com/assets.00/ant-design-icon-512x512-xbdsnx83.png" alt = "Ant Design UI">
+<img src = "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt = "React">
+
+## Deployed App (Non-stable)
 https://simply-stay.vercel.app/
+NOTE: The vercel app is non-stable, meaning that some features may not work such as the login/signup features. For best performance, localhost is highly recommended.
 
 ## How To Setup
 1. Clone the repository
