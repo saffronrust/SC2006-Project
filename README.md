@@ -8,7 +8,7 @@ text
 
 ## Tech Stack
 <div>
-<img src = "https://static-00.iconduck.com/assets.00/ant-design-icon-512x512-xbdsnx83.png" alt = "Ant Design UI">
+<img src = "http://img.shields.io/badge/antdesign-fcd400?style=flat-square&logo=antdesign&logoColor=blue" alt = "Ant Design UI">
 <img src = "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt = "React">
 </div>
 
