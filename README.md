@@ -7,9 +7,12 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 text
 
 ## Tech Stack
+FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
 <div>
-<img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
+<img src = "http://img.shields.io/badge/firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt = "Firebase">
 <img src = "http://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black" alt = "React">
+<img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
+<img src = "http://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=black" alt = "npm">
 </div>
 
 ## Deployed App (Non-stable)
