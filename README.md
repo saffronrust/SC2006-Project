@@ -4,7 +4,23 @@
 In Singapore, buying public housing for the first time can be a daunting task for young adults. As such, we have elected to create a convenient and intuitive website for Singaporeans to get easy access to the housing market.
 
 ## Folder Organisation
-text
+```
+├── SimplyStay
+|   ├── src
+        ├── Components
+        ├── Controllers
+        ├── Images
+        ├── Models
+        ├── Pages
+        ├── App.css
+        ├── App.js
+        ├── firebase.js
+        ├── index.css
+        ├── index.js
+|   ├── README.md
+|   ├── package-lock.json
+|   ├── package.json
+```
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
