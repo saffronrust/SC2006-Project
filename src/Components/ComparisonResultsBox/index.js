@@ -86,6 +86,12 @@ function ComparisonResultBox() {
               >
                 The worse statistic
               </Text>
+              <br />
+              <Text
+                type="warning"
+              >
+                The same statistic
+              </Text>
             </Card>
           </Card.Grid>
         </>
