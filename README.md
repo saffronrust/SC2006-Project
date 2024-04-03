@@ -62,7 +62,8 @@ FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
 
 ## Deployed App (Non-stable)
 https://simply-stay.vercel.app/
-NOTE: The vercel app is non-stable, meaning that some features may not work such as the login/signup features. For best performance, localhost is highly recommended.
+
+NOTE: The vercel app is non-stable, meaning that some features such as the register/login with google function, or the google maps display, does not work. For best performance, localhost is highly recommended.
 
 ## How To Setup
 1. Clone the repository
