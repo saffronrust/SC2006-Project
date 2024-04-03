@@ -83,8 +83,15 @@ const CalculatorBox = () => {
   }
 
   function recommend() {
-    if(grossMonthly>14000) {
+    if(married===true && grossMonthly>14000) {
       setRecommendation("You are ineligible to apply for BTO because you have exceeded the income ceiling of $14000");
+      setStepupGrant(0);
+      setEnhancesSingle(0);
+      setEnhanceCouple(0);
+      setEligibility(false);
+    }
+    else if(age>=35 && married===false && grossMonthly>7000) {
+      setRecommendation("You are ineligible to apply for BTO because you have exceeded the income ceiling of $7000");
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
