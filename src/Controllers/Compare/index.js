@@ -55,7 +55,7 @@ function ShowMRTStationTime({flat, compareFlats}) {
     if (compareFlats[0].nearestmrtstation < compareFlats[1].nearestmrtstation) {
       return <Text type="success">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
     }
-    else if (compareFlats[0].nearestmrtstation < compareFlats[1].nearestmrtstation) {
+    else if (compareFlats[0].nearestmrtstation > compareFlats[1].nearestmrtstation) {
       return <Text type="danger">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
     }
     else {
@@ -66,7 +66,7 @@ function ShowMRTStationTime({flat, compareFlats}) {
     if (compareFlats[1].nearestmrtstation < compareFlats[0].nearestmrtstation) {
       return <Text type="success">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
     }
-    else if (compareFlats[1].nearestmrtstation < compareFlats[0].nearestmrtstation) {
+    else if (compareFlats[1].nearestmrtstation > compareFlats[0].nearestmrtstation) {
       return <Text type="danger">Nearest MRT Station Time: {flat.nearestmrtstation} minutes</Text>
     }
     else {
