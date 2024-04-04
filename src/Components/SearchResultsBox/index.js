@@ -6,6 +6,11 @@ import FavouriteButton from '../FavouriteButton';
 
 const fav = []
 
+function deletefav(flat) {
+    const index = fav.indexOf(flat);
+    fav.splice(index, 1);
+}
+
 function SearchResultsBox() {
 
     const [position, setPosition] = useState('bottom');
@@ -92,4 +97,4 @@ function SearchResultsBox() {
 
 export default SearchResultsBox;
 
-export {fav};
+export {fav,deletefav};
