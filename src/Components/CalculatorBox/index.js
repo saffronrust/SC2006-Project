@@ -289,7 +289,13 @@ const CalculatorBox = () => {
           Check Your BTO Eligibility
         </Typography.Title>
         <Form
-          onSubmit={(e) => e.preventDefault()}
+          // onSubmit={(e) => e.preventDefault()}
+          onFinish={() => {
+            calculategrants();
+            recommend();
+            rec_recommend();
+            debbu();
+          }}
           name="basic"
           labelCol={{
             span: 12,
@@ -326,6 +332,7 @@ const CalculatorBox = () => {
             rules={[
               {
                 required: true,
+                message: "Input required",
               },
             ]}
           >
@@ -459,12 +466,12 @@ const CalculatorBox = () => {
               type="primary"
               // icon={<SearchOutlined />}
               htmlType="submit"
-              onClick={() => {
-                calculategrants();
-                recommend();
-                rec_recommend();
-                debbu();
-              }}
+              // onClick={() => {
+              //   calculategrants();
+              //   recommend();
+              //   rec_recommend();
+              //   debbu();
+              // }}
             >
               Calculate
             </Button>
