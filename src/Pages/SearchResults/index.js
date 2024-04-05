@@ -2,7 +2,7 @@ import SearchResultsBox from "../../Components/SearchResultsBox";
 
 function SearchResults() {
     return (
-        <div className="background">
+        <div className="mainbackground">
             <div className="translucentbox">
                 <div className="favbox">
                     <SearchResultsBox />

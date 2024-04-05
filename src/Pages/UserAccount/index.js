@@ -2,7 +2,7 @@ import UserAccountBox from "../../Components/UserAccountBox";
 
 function UserAccount() {
     return (
-        <div className="background">
+        <div className="loginbackground">
             <div className="translucentbox">
                 <div className="useraccount">
                     <UserAccountBox />

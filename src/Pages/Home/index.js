@@ -31,7 +31,7 @@ function Home() {
       }, [user, loading]);
 
     return (
-        <div className="background">
+        <div className="mainbackground">
             <div className="homeSlogan">
                 <Title
                   italic = {true}

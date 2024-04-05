@@ -2,7 +2,7 @@ import SearchBox from "../../Components/SearchBox";
 
 function Search() {
     return (
-        <div className="background">
+        <div className="mainbackground">
             <div className="translucentbox">
                 <div className="searchbox">
                     <SearchBox />

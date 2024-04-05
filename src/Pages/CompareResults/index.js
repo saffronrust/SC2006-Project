@@ -2,7 +2,7 @@ import ComparisonResultBox from "../../Components/ComparisonResultsBox";
 
 function CompareResults() {
     return (
-        <div className="background">
+        <div className="mainbackground">
             <div className="translucentbox">
                 <div className="compareresults">
                     <ComparisonResultBox />

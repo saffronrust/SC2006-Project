@@ -2,7 +2,7 @@ import SignupBox from "../../Components/SignupBox";
 
 function Signup() {
   return (
-    <div className="background">
+    <div className="loginbackground">
       <div className="translucentbox">
         <div className="signupbox">
           <SignupBox />

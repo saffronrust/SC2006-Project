@@ -135,8 +135,15 @@
   padding-left: 8px;
 }
 
-.background {
-  background: url("Images/background.jpg");
+.mainbackground {
+  background: url("Images/mainbackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+}
+
+.loginbackground {
+  background: url("Images/login.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;

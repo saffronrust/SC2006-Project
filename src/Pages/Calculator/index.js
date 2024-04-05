@@ -2,7 +2,7 @@ import CalculatorBox from "../../Components/CalculatorBox";
 
 function Calculator() {
     return (
-        <div className="background">
+        <div className="mainbackground">
             <div className="translucentbox">
                 <CalculatorBox />
             </div>
