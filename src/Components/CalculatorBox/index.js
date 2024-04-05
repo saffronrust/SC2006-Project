@@ -23,7 +23,7 @@ const CalculatorBox = () => {
   useEffect(() => {
     calculategrants();
   }, [enhancesSingle, enhanceCouple, stepupGrant]);
-  
+
   const handleMarried = (event) => {
     setMarried(event.target.value);
   };
@@ -83,28 +83,41 @@ const CalculatorBox = () => {
   }
 
   function recommend() {
-    if(grossMonthly>14000) {
-      setRecommendation("You are ineligible to apply for BTO because you have exceeded the income ceiling of $14000");
+    if (married === true && grossMonthly > 14000) {
+      setRecommendation(
+        "You are ineligible to apply for BTO because you have exceeded the income ceiling of $14000"
+      );
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
       setEligibility(false);
-    }
-    else if (
+    } else if (age >= 35 && married === false && grossMonthly > 7000) {
+      setRecommendation(
+        "You are ineligible to apply for BTO because you have exceeded the income ceiling of $7000"
+      );
+      setStepupGrant(0);
+      setEnhancesSingle(0);
+      setEnhanceCouple(0);
+      setEligibility(false);
+    } else if (
       (married === true &&
         age >= 21 &&
         1 <= grossMonthly <= 14000 &&
         check !== 0) ||
-      (age >= 35 && married === false && 1 <= grossMonthly <= 7000 && check !== 0)
+      (age >= 35 &&
+        married === false &&
+        1 <= grossMonthly <= 7000 &&
+        check !== 0)
     ) {
       paymentcash();
       paymentcpf();
       setRecommendation("Congratulations, you are eligible to apply for BTO!");
       setEligibility(true);
       return recommendation;
-    } 
-    else if(age<35 && married===false) {
-      setRecommendation("You are ineligible to apply for BTO as a single below 35 years old");
+    } else if (age < 35 && married === false) {
+      setRecommendation(
+        "You are ineligible to apply for BTO as a single below 35 years old"
+      );
       setStepupGrant(0);
       setEnhancesSingle(0);
       setEnhanceCouple(0);
@@ -272,11 +285,11 @@ const CalculatorBox = () => {
   return (
     <div className="calculatorPage">
       <div className="calculatorForm">
-      <Typography.Title level={2}>Check Your BTO Eligibility</Typography.Title>
+        <Typography.Title level={2}>
+          Check Your BTO Eligibility
+        </Typography.Title>
         <Form
-          onSubmit={
-            (e) => e.preventDefault()
-          }
+          onSubmit={(e) => e.preventDefault()}
           name="basic"
           labelCol={{
             span: 12,
@@ -307,67 +320,80 @@ const CalculatorBox = () => {
           </Form.Item>
 
           <Form.Item
-          label="Applying with partner"
-          name="married"
-          value={married}
-          rules={[
-            {
-              required: true,
-            },
-          ]}
+            label="Applying with partner"
+            name="married"
+            value={married}
+            rules={[
+              {
+                required: true,
+              },
+            ]}
           >
-            <Radio.Group name="maritalstatus"
-            //defaultValue={1}
+            <Radio.Group
+              name="maritalstatus"
+              //defaultValue={1}
             >
-              <Radio value={true} onChange={handleMarried} check={married === true}>
+              <Radio
+                value={true}
+                onChange={handleMarried}
+                check={married === true}
+              >
                 Yes
               </Radio>
-              <Radio value={false} onChange={handleMarried} check={married === false}>
+              <Radio
+                value={false}
+                onChange={handleMarried}
+                check={married === false}
+              >
                 No
               </Radio>
             </Radio.Group>
           </Form.Item>
 
-          {married && <Form.Item
-            label="Combined Income:"
-            name="monthly income"
-            value={grossMonthly}
-            rules={[
-              {
-                type: "integer",
-                min: 0,
-                message: "Please input a valid amount.",
-                required: true,
-              },
-            ]}
-            onChange={(e) => setGrossMonthly(e.target.value)}
-            onKeyUp={calculateLoanAmount}
-          >
-            <InputNumber
-              style={{ width: 150 }}
-              placeholder="Monthly amount"
-            />
-          </Form.Item>}
-          {!married && <Form.Item
-            label="Gross Income"
-            name="monthly income"
-            value={grossMonthly}
-            rules={[
-              {
-                type: "integer",
-                min: 0,
-                message: "Please input a valid amount.",
-                required: true,
-              },
-            ]}
-            onChange={(e) => setGrossMonthly(e.target.value)}
-            onKeyUp={calculateLoanAmount}
-          >
-            <InputNumber
-              style={{ width: 150 }}
-              placeholder="Monthly amount"
-            />
-          </Form.Item>}
+          {married && (
+            <Form.Item
+              label="Combined Income:"
+              name="monthly income"
+              value={grossMonthly}
+              rules={[
+                {
+                  type: "integer",
+                  min: 0,
+                  message: "Please input a valid amount.",
+                  required: true,
+                },
+              ]}
+              onChange={(e) => setGrossMonthly(e.target.value)}
+              onKeyUp={calculateLoanAmount}
+            >
+              <InputNumber
+                style={{ width: 150 }}
+                placeholder="Monthly amount"
+              />
+            </Form.Item>
+          )}
+          {!married && (
+            <Form.Item
+              label="Gross Income"
+              name="monthly income"
+              value={grossMonthly}
+              rules={[
+                {
+                  type: "integer",
+                  min: 0,
+                  message: "Please input a valid amount.",
+                  required: true,
+                },
+              ]}
+              onChange={(e) => setGrossMonthly(e.target.value)}
+              onKeyUp={calculateLoanAmount}
+            >
+              <InputNumber
+                style={{ width: 150 }}
+                placeholder="Monthly amount"
+              />
+            </Form.Item>
+          )}
 
           <Form.Item
             label="Monthly Expenses"
@@ -466,13 +492,17 @@ const CalculatorBox = () => {
         )}
         {eligibility && (
           <div className="calculatorResult">
-            <h3 className="resultTitle">Option 1. Downpayment using Cash ($):</h3>
+            <h3 className="resultTitle">
+              Option 1. Downpayment using Cash ($):
+            </h3>
             <p className="resultInfo">{paycash}</p>
           </div>
         )}
         {eligibility && (
           <div className="calculatorResult">
-            <h3 className="resultTitle">Option 2. Downpayment using CPF ($):</h3>
+            <h3 className="resultTitle">
+              Option 2. Downpayment using CPF ($):
+            </h3>
             <p className="resultInfo">{paycpf}</p>
           </div>
         )}
@@ -480,12 +510,14 @@ const CalculatorBox = () => {
       {eligibility && (
         <div className="calculatorGrant">
           <Typography.Title level={3}>Grants</Typography.Title>
-              <h3 className="resultTitle">Step-Up CPF Housing Grant ($):</h3>
-              <p className="resultInfo">{stepupGrant}</p>
-              <h3 className="resultTitle">EHG Grant ($):</h3>
-              <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
-              <h3 className="resultTitle">Total Grant ($):</h3>
-              <p className="resultInfo">{enhanceCouple + enhancesSingle + stepupGrant}</p>
+          <h3 className="resultTitle">Step-Up CPF Housing Grant ($):</h3>
+          <p className="resultInfo">{stepupGrant}</p>
+          <h3 className="resultTitle">EHG Grant ($):</h3>
+          <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
+          <h3 className="resultTitle">Total Grant ($):</h3>
+          <p className="resultInfo">
+            {enhanceCouple + enhancesSingle + stepupGrant}
+          </p>
           <h3 className="resultTitle">Recommended Renovation Cost ($):</h3>
           <p className="resultInfo"> ${renovate}</p>
         </div>
