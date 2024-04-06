@@ -531,25 +531,28 @@ const EligibilityBox = () => {
       {eligibility && (
         <div className="calculatorGrant">
           <Typography.Title level={3}>Grants</Typography.Title>
-          <h3 className="resultTitle">Step-Up CPF Housing Grant ($):</h3>
+          <h3 className="resultTitle">Step-Up CPF Housing Grant:</h3>
           <p className="resultInfo">
+            $
             {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
               stepupGrant
             )}
           </p>
-          <h3 className="resultTitle">EHG Grant ($):</h3>
+          <h3 className="resultTitle">EHG Grant:</h3>
           <p className="resultInfo">
+            $
             {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
               enhanceCouple + enhancesSingle
             )}
           </p>
-          <h3 className="resultTitle">Total Grant ($):</h3>
+          <h3 className="resultTitle">Total Grant:</h3>
           <p className="resultInfo">
+            $
             {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
               enhanceCouple + enhancesSingle + stepupGrant
             )}
           </p>
-          <h3 className="resultTitle">Recommended Renovation Cost ($):</h3>
+          <h3 className="resultTitle">Recommended Renovation Cost:</h3>
           <p className="resultInfo">
             {" "}
             $
