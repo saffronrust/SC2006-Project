@@ -200,6 +200,15 @@
   padding: 5px;
 }
 
+.loancalculatorResult {
+  background-color: skyblue;
+  padding: 5px;
+  padding-top: 0px;
+  border-radius: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+
 .calculatorGrant {
   background-color: aquamarine;
   border-radius: 10px;
@@ -207,7 +216,7 @@
   padding-top: 10px;
 }
 
-.resultInfo{
+.resultInfo {
   background-color: #d3d3d3;
   font-size: 20px;
   width: 100%;
@@ -215,7 +224,7 @@
   margin-top: 0;
 }
 
-.resultTitle{
+.resultTitle {
   background-color: white;
   text-align: center;
   margin-bottom: 0;
@@ -224,5 +233,5 @@
 .incomeMsg {
   background-color: #d3d3d3;
   padding: 2px;
-  border-radius: 3px ;
+  border-radius: 3px;
 }

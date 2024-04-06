@@ -14,50 +14,17 @@ import Reset from "../../Pages/Reset";
 function AppRoutes() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Home />}
-      />
-      <Route
-        path="/search"
-        element={<Search />}
-      />
-      <Route
-        path="/calculator"
-        element={<Calculator />}
-      />
-      <Route
-        path="/compare"
-        element={<Compare />}
-      />
-      <Route
-        path="/favourites"
-        element={<Favourites />}
-      />
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-      <Route
-        path="/signup"
-        element={<Signup />}
-      />
-      <Route
-        path="/useraccount"
-        element={<UserAccount />}
-      />
-      <Route
-        path="/searchresults"
-        element={<SearchResults />}
-      />
-      <Route
-        path="/compareresults"
-        element={<CompareResults />}
-      />
-      <Route
-        path="/reset"
-        element={<Reset />}
-      />
+      <Route path="/" element={<Home />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/calculator" element={<Calculator />} />
+      <Route path="/compare" element={<Compare />} />
+      <Route path="/favourites" element={<Favourites />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/useraccount" element={<UserAccount />} />
+      <Route path="/searchresults" element={<SearchResults />} />
+      <Route path="/compareresults" element={<CompareResults />} />
+      <Route path="/reset" element={<Reset />} />
     </Routes>
   );
 }

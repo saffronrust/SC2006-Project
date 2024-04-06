@@ -2,7 +2,7 @@ import { Form, InputNumber, Button, Radio } from "antd";
 import React, { useEffect, useState } from "react";
 import { Typography } from "antd";
 
-const CalculatorBox = () => {
+const EligibilityBox = () => {
   const [age, setAge] = useState("");
   const [married, setMarried] = useState(true);
   const [grossMonthly, setGrossMonthly] = useState("");
@@ -485,7 +485,10 @@ const CalculatorBox = () => {
           <div className="calculatorResult">
             <h3 className="resultTitle">Estimated Buying Power:</h3>
             <p className="resultInfo">
-              $ {parseFloat(monthlyPayment.toFixed(2))}
+              ${" "}
+              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+                parseFloat(monthlyPayment.toFixed(2))
+              )}
             </p>
           </div>
         )}
@@ -493,7 +496,10 @@ const CalculatorBox = () => {
           <div className="calculatorResult">
             <h3 className="resultTitle">Downpayment required(15%):</h3>
             <p className="resultInfo">
-              $ {parseFloat(monthlyPayment * (0.15).toFixed(2))}
+              ${" "}
+              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+                parseFloat(monthlyPayment * (0.15).toFixed(2))
+              )}
             </p>
           </div>
         )}
@@ -502,7 +508,11 @@ const CalculatorBox = () => {
             <h3 className="resultTitle">
               Option 1. Downpayment using Cash ($):
             </h3>
-            <p className="resultInfo">{paycash}</p>
+            <p className="resultInfo">
+              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+                paycash
+              )}
+            </p>
           </div>
         )}
         {eligibility && (
@@ -510,7 +520,11 @@ const CalculatorBox = () => {
             <h3 className="resultTitle">
               Option 2. Downpayment using CPF ($):
             </h3>
-            <p className="resultInfo">{paycpf}</p>
+            <p className="resultInfo">
+              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+                paycpf
+              )}
+            </p>
           </div>
         )}
       </div>
@@ -518,19 +532,35 @@ const CalculatorBox = () => {
         <div className="calculatorGrant">
           <Typography.Title level={3}>Grants</Typography.Title>
           <h3 className="resultTitle">Step-Up CPF Housing Grant ($):</h3>
-          <p className="resultInfo">{stepupGrant}</p>
+          <p className="resultInfo">
+            {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+              stepupGrant
+            )}
+          </p>
           <h3 className="resultTitle">EHG Grant ($):</h3>
-          <p className="resultInfo">{enhanceCouple + enhancesSingle}</p>
+          <p className="resultInfo">
+            {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+              enhanceCouple + enhancesSingle
+            )}
+          </p>
           <h3 className="resultTitle">Total Grant ($):</h3>
           <p className="resultInfo">
-            {enhanceCouple + enhancesSingle + stepupGrant}
+            {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+              enhanceCouple + enhancesSingle + stepupGrant
+            )}
           </p>
           <h3 className="resultTitle">Recommended Renovation Cost ($):</h3>
-          <p className="resultInfo"> ${renovate}</p>
+          <p className="resultInfo">
+            {" "}
+            $
+            {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+              renovate
+            )}
+          </p>
         </div>
       )}
     </div>
   );
 };
 
-export default CalculatorBox;
+export default EligibilityBox;
