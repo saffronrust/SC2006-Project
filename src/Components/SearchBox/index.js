@@ -11,6 +11,7 @@ const result = []
 function SearchBox() {
 
   const [maxprice, setMaxPrice] = useState(0);
+  const [minprice, setMinPrice] = useState(0);
   const [location, setLocation] = useState("");
   const [roomtype, setRoomType] = useState("");
   const [flats, setFlats] = useState([]);
@@ -30,8 +31,9 @@ function SearchBox() {
     for (let i = 0; i < flats.length; i++) {
         for (let j = 0; j < flats[i].roomtype.length; j++) {
           if (flats[i].maxprice <= values.maxprice &&
+            flats[i].minprice >= values.minprice &&
             flats[i].location === values.location &&
-            flats[i].roomtype[j] === values.roomtype)
+            flats[i].roomtype[j].includes(values.roomtype))
           {
             result.push(flats[i]);
           }
@@ -82,6 +84,27 @@ function SearchBox() {
               },
             ]}
             onValuesChange = {(e) => setMaxPrice(e.target.value)}
+          >
+            <InputNumber
+              style={{ width: 150 }}
+              placeholder='In SGD'
+            />
+          </Form.Item>
+          <Form.Item
+            label="Min Price"
+            name= "minprice"
+            value={minprice}
+            initialValue={0}
+            rules={[
+              {
+                type: 'integer',
+                min: 0,
+                max: 1000000,
+                message: 'Please input a valid price.',
+                //required: true,
+              },
+            ]}
+            onValuesChange = {(e) => setMinPrice(e.target.value)}
           >
             <InputNumber
               style={{ width: 150 }}

@@ -48,6 +48,19 @@ function ComparisonBox() {
           return;
         }
 
+        let check = false;
+        for (let i = 0; i < flatOptions.length; i++) {
+            if (flatOptions[i].value === values.firstflatname || flatOptions[i].value === values.secondflatname)
+            {
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            message.error('Please select a valid house name!', 1.5);
+            return;
+        }
+
         for (let i = 0; i < flats.length; i++) {
           if (flats[i].name === values.firstflatname || flats[i].name === values.secondflatname)
           {

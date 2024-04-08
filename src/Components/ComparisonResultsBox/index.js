@@ -21,6 +21,7 @@ function ComparisonResultBox() {
         fetchData();
     }, []);
 
+      console.log(compareFlats)
       return (
         <>
           <Card.Grid
@@ -60,6 +61,9 @@ function ComparisonResultBox() {
                     {flat.roomtype.map((room) => (
                       <p>{room}</p>
                     ))}
+                  </p>
+                  <p>
+                    Nearest MRT Station: {flat.nearestmrtstationname}
                   </p>
                   <ShowMRTStationTime
                     flat={flat}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { List, Modal, Button, Empty, Result, Typography, notification } from 'antd';
 import MapBox from "../MapBox";
@@ -59,13 +60,18 @@ const FavouriteBox = () => {
             <Result
                 status="403"
                 title="Not Logged In"
-                subTitle="Please login to view your favourites."
+                subTitle={
+                    <Typography.Text>
+                        Please login to view your favourites.
+                    </Typography.Text>
+                }
                 extra={
                     <Button 
-                    type="primary"
-                    onClick={() => navigate("/login")}
+                        type="primary"
+                        onClick={() => navigate("/login")}
                     >
-                        Go To Login Page</Button>
+                        Go To Login Page
+                    </Button>
                 }
             />
         )
@@ -134,10 +140,13 @@ const FavouriteBox = () => {
                     <p>Location: {currentflat.location}</p>
                     <p>Max Price: ${currentflat.maxprice}</p>
                     <p>Min Price: ${currentflat.minprice}</p>
-                    <p>Room Type:
+                    <p>Room Type and Price Range:
                         {currentflat.roomtype.map((room) => (
                             <p>{room}</p>
                         ))}
+                    </p>
+                    <p>
+                        Nearest MRT Station: {currentflat.nearestmrtstationname}
                     </p>
                     <p>Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes</p>
                     <p>{MapBox(currentflat.lat,currentflat.lng,currentflat.Street)}</p>
@@ -185,10 +194,13 @@ const FavouriteBox = () => {
                     <p>Location: {currentflat.location}</p>
                     <p>Max Price: ${currentflat.maxprice}</p>
                     <p>Min Price: ${currentflat.minprice}</p>
-                    <p>Room Type:
+                    <p>Room Type and Price Range:
                         {currentflat.roomtype.map((room) => (
                             <p>{room}</p>
                         ))}
+                    </p>
+                    <p>
+                        Nearest MRT Station: {currentflat.nearestmrtstationname}
                     </p>
                     <p>Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes</p>
                     <p>{MapBox(currentflat.lat,currentflat.lng,currentflat.Street)}</p>

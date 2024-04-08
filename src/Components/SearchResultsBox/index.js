@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { result } from '../SearchBox';
 import MapBox from '../MapBox';
@@ -77,12 +78,15 @@ function SearchResultsBox() {
                     Min Price: ${currentflat.minprice}
                 </p>
                 <p>
-                    Room Type:
+                    Room Type and Price Range:
                         {currentflat.roomtype.map((room) => (
                             <p>
                                 {room}
                             </p>
                         ))}
+                </p>
+                <p>
+                    Nearest MRT Station: {currentflat.nearestmrtstationname}
                 </p>
                 <p>
                     Nearest MRT Station Time: {currentflat.nearestmrtstation} minutes

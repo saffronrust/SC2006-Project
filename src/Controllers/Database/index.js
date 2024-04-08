@@ -13,6 +13,7 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
         name: flat.name,
         location: flat.location,
         nearestmrtstation: flat.nearestmrtstation,
+        nearestmrtstationname: flat.nearestmrtstationname,
         maxprice: flat.maxprice,
         minprice: flat.minprice,
         roomtype: flat.roomtype,

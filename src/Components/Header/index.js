@@ -5,6 +5,9 @@ import {
   SearchOutlined,
   SlidersFilled,
   UserOutlined,
+  CheckCircleFilled,
+  MoneyCollectFilled,
+  QuestionCircleFilled,
 } from "@ant-design/icons";
 import { Menu, Typography, Button, Tour } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -43,12 +46,12 @@ function AppHeader() {
     },
     {
       title: "Search",
-      description: "Search for your desired BTO.",
+      description: "Search for your desired BTO with our filters.",
       target: () => ref2.current,
     },
     {
       title: "Calculator",
-      description: "Calculate your payment plans.",
+      description: "Calculate your eligibility to BTO, and the payment plans required.",
       target: () => ref3.current,
     },
     {
@@ -58,7 +61,7 @@ function AppHeader() {
     },
     {
       title: "Favourites",
-      description: "View your favourite BTOs.",
+      description: "View your favourite BTOs if you are logged in.",
       target: () => ref5.current,
     },
     {
@@ -91,8 +94,16 @@ function AppHeader() {
             icon: <CalculatorFilled ref={ref3} />,
             key: "calculator",
             children: [
-              { label: "Check your eligibility", key: "eligibility" },
-              { label: "Loan Calculator", key: "calculator" },
+              {
+                label: "Check Your Eligibility",
+                icon: <CheckCircleFilled />,
+                key: "eligibility"
+              },
+              {
+                label: "Loan Calculator",
+                icon: <MoneyCollectFilled />,
+                key: "calculator"
+              },
             ],
           },
           {
@@ -115,7 +126,7 @@ function AppHeader() {
         type="primary"
         onClick={() => setOpen(true)}
       >
-        Guide
+        Guide <QuestionCircleFilled />
       </Button>
 
       <Tour open={open} onClose={() => setOpen(false)} steps={steps} />

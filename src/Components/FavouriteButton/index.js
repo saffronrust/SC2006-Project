@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Button, notification } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
@@ -7,6 +8,7 @@ import { auth } from '../../firebase';
 
 function FavouriteButton({flat}) {
 
+    // eslint-disable-next-line no-unused-vars
     const [user, loading] = useAuthState(auth);
 
     const [api, contextHolder] = notification.useNotification();
