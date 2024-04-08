@@ -61,6 +61,7 @@ const HousingLoanCalcBox = () => {
               {
                 type: "integer",
                 min: 100000,
+                max: 999999,
                 message: "Please input a valid price.",
                 required: true,
               },
