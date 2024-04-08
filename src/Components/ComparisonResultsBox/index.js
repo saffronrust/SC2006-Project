@@ -5,6 +5,7 @@ import { Card } from 'antd';
 import Text from "antd/es/typography/Text";
 import MapBox from '../MapBox';
 import { ShowMinPrice, ShowMaxPrice, ShowMRTStationTime } from '../../Controllers/Compare';
+import FavouriteButton from '../FavouriteButton';
 
 function ComparisonResultBox() {
 
@@ -36,6 +37,11 @@ function ComparisonResultBox() {
                 <Card
                   key={flat.id}
                   title={flat.name}
+                  extra={
+                    <FavouriteButton
+                      flat={flat}
+                    />
+                  }
                 >
                   <p>
                     Location: {flat.location}
