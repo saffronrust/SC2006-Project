@@ -39,6 +39,11 @@ const EligibilityBox = () => {
     console.log(monthlyPayment);
   };
 
+  function stringconverter(a){
+    if(typeof a==="string") return a;
+    else return Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(a);
+  }
+
   function paymentcpf() {
     if (
       (married === true && age >= 21 && grossMonthly <= 14000) ||
@@ -466,12 +471,6 @@ const EligibilityBox = () => {
               type="primary"
               // icon={<SearchOutlined />}
               htmlType="submit"
-              // onClick={() => {
-              //   calculategrants();
-              //   recommend();
-              //   rec_recommend();
-              //   debbu();
-              // }}
             >
               Calculate
             </Button>
@@ -509,9 +508,9 @@ const EligibilityBox = () => {
               Option 1. Downpayment using Cash ($):
             </h3>
             <p className="resultInfo">
-              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
-                paycash
-              )}
+              {
+                stringconverter(paycash)
+              }
             </p>
           </div>
         )}
@@ -521,9 +520,9 @@ const EligibilityBox = () => {
               Option 2. Downpayment using CPF ($):
             </h3>
             <p className="resultInfo">
-              {Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
-                paycpf
-              )}
+              {
+                stringconverter(paycpf)
+              }
             </p>
           </div>
         )}
