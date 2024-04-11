@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../../firebase";
-import { sendPasswordReset } from "../../Controllers/Database";
+import { sendPasswordReset } from "../../Utility/Database";
 import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
-import "./index.css";
 
 function ResetBox() {
   const [email, setEmail] = useState("");

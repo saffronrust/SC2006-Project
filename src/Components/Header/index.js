@@ -11,7 +11,7 @@ import {
 } from "@ant-design/icons";
 import { Menu, Typography, Button, Tour } from "antd";
 import { useNavigate } from "react-router-dom";
-import { removeCompareResultsFromDatabase } from "../../Controllers/Database";
+import { removeCompareResultsFromDatabase } from "../../Utility/Database";
 import { useState, useRef } from "react";
 import { result } from "../SearchBox";
 

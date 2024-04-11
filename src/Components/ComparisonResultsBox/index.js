@@ -4,7 +4,7 @@ import { getDocs, collection } from 'firebase/firestore';
 import { Card } from 'antd';
 import Text from "antd/es/typography/Text";
 import MapBox from '../MapBox';
-import { ShowMinPrice, ShowMaxPrice, ShowMRTStationTime } from '../../Controllers/Compare';
+import { ShowMinPrice, ShowMaxPrice, ShowMRTStationTime } from '../../Utility/Compare';
 import FavouriteButton from '../FavouriteButton';
 
 function ComparisonResultBox() {

@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import { registerWithEmailAndPassword, signInWithGoogle } from "../../Controllers/Database";
+import { registerWithEmailAndPassword, signInWithGoogle } from "../../Utility/Database";
 import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 import { message } from "antd";
-import "./index.css";
 
 function SignupBox() {
   const [email, setEmail] = useState("");

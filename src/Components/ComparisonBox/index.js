@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { SearchOutlined } from '@ant-design/icons';
-import { addCompareResultsToFirebase } from '../../Controllers/Database';
+import { addCompareResultsToFirebase } from '../../Utility/Database';
 import { useNavigate } from 'react-router-dom';
 import { flatOptions } from '../../FlatData';
 

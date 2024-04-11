@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
-import { logout } from "../../Controllers/Database";
+import { logout } from "../../Utility/Database";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button, Card } from "antd";
-import "./index.css";
 
 function UserAccountBox() {
 
