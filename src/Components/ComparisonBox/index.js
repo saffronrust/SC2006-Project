@@ -5,7 +5,7 @@ import { getDocs, collection } from 'firebase/firestore';
 import { SearchOutlined } from '@ant-design/icons';
 import { addCompareResultsToFirebase } from '../../Controllers/Database';
 import { useNavigate } from 'react-router-dom';
-import { flatOptions } from '../../Models/Flat';
+import { flatOptions } from '../../FlatData';
 
 function ComparisonBox() {
 
