@@ -196,12 +196,12 @@
 }
 
 .calculatorResult {
-  background-color: aqua;
+  background-color: #91d5ff;
   padding: 5px;
 }
 
 .loancalculatorResult {
-  background-color: skyblue;
+  background-color: #91d5ff;
   padding: 5px;
   padding-top: 0px;
   border-radius: 5px;
@@ -210,14 +210,14 @@
 }
 
 .calculatorGrant {
-  background-color: aquamarine;
+  background-color: #91d5ff;
   border-radius: 10px;
   padding: 10px;
   padding-top: 10px;
 }
 
 .resultInfo {
-  background-color: #d3d3d3;
+  /* background-color: #d3d3d3; */
   font-size: 20px;
   width: 100%;
   text-align: center;
@@ -225,7 +225,7 @@
 }
 
 .resultTitle {
-  background-color: white;
+  /* background-color: white; */
   text-align: center;
   margin-bottom: 0;
 }

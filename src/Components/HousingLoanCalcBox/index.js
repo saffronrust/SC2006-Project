@@ -82,6 +82,8 @@ const HousingLoanCalcBox = () => {
             rules={[
               {
                 type: "integer",
+                min: 1,
+                max: 999999,
                 //   max: 0.75 * housePrice,
                 message: "Please input a valid amount.",
                 required: true,
@@ -113,7 +115,8 @@ const HousingLoanCalcBox = () => {
             name="AnnualInterestRate"
             rules={[
               {
-                type: "integer",
+                type: "number",
+                min: 0.1,
                 max: 10,
                 message: "Please input a valid interest rate.",
                 required: true,
@@ -130,6 +133,8 @@ const HousingLoanCalcBox = () => {
             rules={[
               {
                 type: "integer",
+                min: 1,
+                max: 25,
                 message: "Please input a valid loan tenure.",
                 required: true,
               },

@@ -5,7 +5,6 @@ function Calculator() {
   return (
     <div className="mainbackground">
       <div className="translucentbox">
-        {/* <EligibilityBox /> */}
         <HousingLoanCalcBox />
       </div>
     </div>
