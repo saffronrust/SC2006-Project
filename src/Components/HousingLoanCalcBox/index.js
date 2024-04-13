@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { Form, InputNumber, Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { Typography } from "antd";
@@ -124,7 +126,12 @@ const HousingLoanCalcBox = () => {
             ]}
             onChange={(e) => setMonthlyInterestRate(e.target.value / 1200)}
           >
-            <InputNumber style={{ width: 150 }} placeholder="Enter rate here" />
+            <InputNumber
+              style={{
+                width: 150
+              }}
+              placeholder="Enter rate here"
+            />
           </Form.Item>
 
           <Form.Item

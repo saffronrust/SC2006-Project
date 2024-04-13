@@ -8,10 +8,10 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 ├── SimplyStay
 |   ├── src
         ├── Components
-        ├── Controllers
+        ├── FlatData
         ├── Images
-        ├── Models
         ├── Pages
+        ├── Utility
         ├── App.css
         ├── App.js
         ├── firebase.js
@@ -25,17 +25,17 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 #### `Components` folder
 The `Components` folder contains the necessary components needed to make the website function.
 
-#### `Controllers` folder
-The `Controllers` folder contains important app logic for some of the components.
+#### `FlatData` folder
+The `FlatData` folder contains flat information for all of the flats in the website.
 
 #### `Images` folder
 The `Images` folder contains images used in the website.
 
-#### `Models` folder
-The `Models` folder contains the flats used in the website.
-
 #### `Pages` folder
 The `Pages` folder contains the UI for the website.
+
+#### `Utility` folder
+The `Utility` folder contains important functions used in the website.
 
 #### `App.js` & `App.css`
 The meat of the website.
