@@ -52,7 +52,7 @@ FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
 <img src = "http://img.shields.io/badge/firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt = "Firebase">
 <img src = "http://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black" alt = "React">
 <img src = "http://img.shields.io/badge/antdesign-0170FE?style=flat-square&logo=antdesign&logoColor=black" alt = "Ant Design UI">
-<img src = "http://img.shields.io/badge/nodedotjs-339933?style=flat-square&logo=nodedotjs&logoColor=black" alt = "nodejs">
+<img src = "http://img.shields.io/badge/nodedotjs-339933?style=flat-square&logo=nodejs&logoColor=black" alt = "nodejs">
 </div>
 <div>
 <img src="http://img.shields.io/badge/Javascript-fcd400?style=flat-square&logo=javascript&logoColor=black" alt="Javascript">
