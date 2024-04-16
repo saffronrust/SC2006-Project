@@ -8,6 +8,15 @@ import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 import { message } from "antd";
 
+/**
+ * This component is used to display the signup form.
+ * The user can sign up to the website using their email and password.
+ * The email address must be a valid email address.
+ * The password must be at least 8 characters long.
+ * The user can also sign up using their Google account.
+ * The user can navigate to the login page by clicking on the login link.
+ * @returns SignupBox component
+ */
 function SignupBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +37,7 @@ function SignupBox() {
       message.error("Password must be at least 8 characters long!", 1.5)
       return;
     }
+
     registerWithEmailAndPassword(name, email, password);
     navigate("/");
   };

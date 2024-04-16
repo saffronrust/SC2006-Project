@@ -3,6 +3,10 @@ import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
+/**
+ * This file is used to initialize the Firebase app with the Firebase configuration.
+ * It also exports the Firebase authentication and Firestore database objects.
+ */
 const firebaseConfig = {
     apiKey: "AIzaSyAR1UkYZ8gW6iWg00DCfaifqlDxGPOc2dM",
     authDomain: "simplystay-47876.firebaseapp.com",

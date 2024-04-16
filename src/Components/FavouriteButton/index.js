@@ -6,6 +6,14 @@ import { fav } from '../SearchResultsBox';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
 
+/**
+ * This component is used to add the house to the user's favourite list.
+ * The user can add the house to their favourite list by clicking on the heart icon.
+ * This button appears in <SearchResultsBox /> and <ComparisonResultsBox />.
+ * The user will not be able to add a house to their favourite list if they are not logged in.
+ * @param {*} flat
+ * @returns FavoriteButton component
+ */
 function FavouriteButton({flat}) {
 
     // eslint-disable-next-line no-unused-vars

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +7,12 @@ import { logout } from "../../Utility/Database";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { Button, Card } from "antd";
 
+/**
+ * This component is used to display the user account box.
+ * The user can see their name and email address.
+ * The user can click on the logout button to logout from the website.
+ * @returns UserAccountBox component
+ */
 function UserAccountBox() {
 
   const [user, loading] = useAuthState(auth);

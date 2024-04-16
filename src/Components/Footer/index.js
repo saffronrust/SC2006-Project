@@ -1,5 +1,12 @@
 import { Footer } from "antd/es/layout/layout";
 
+/**
+ * This component is used to display the footer of the website.
+ * The footer contains the name of the team that created the website and the tech stack used to create the website.
+ * The footer is displayed at the bottom of the website.
+ * The footer is displayed in all pages of the website.
+ * @returns AppFooter component
+ */
 function AppFooter() {
     return (
     <div className="appFooter">

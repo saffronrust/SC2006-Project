@@ -1,3 +1,7 @@
+/**
+ * This component is used to store the array of flat names to be used in the compare page.
+ * @returns flatOptions array
+ */
 const flatOptions = [
     {
       value: "Bedok North Springs",

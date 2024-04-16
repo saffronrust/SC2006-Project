@@ -1,5 +1,12 @@
 import Text from "antd/es/typography/Text";
 
+/**
+ * This component is used to display the minimum price of the flat.
+ * The lower minimum price will be displayed in green, the higher minimum price will be displayed in red, and the same minimum price will be displayed in yellow.
+ * @param {flat} flat
+ * @param {compareFlats} compareFlats
+ * @returns ShowMinPrice component 
+ */
 function ShowMinPrice({flat, compareFlats}) {
   if (flat.name === compareFlats[0].name) {
     if (compareFlats[0].minprice < compareFlats[1].minprice) {
@@ -25,6 +32,13 @@ function ShowMinPrice({flat, compareFlats}) {
   }
 }
 
+/**
+ * This component is used to display the maximum price of the flat.
+ * The lower maximum price will be displayed in green, the higher maximum price will be displayed in red, and the same maximum price will be displayed in yellow.
+ * @param {flat} flat
+ * @param {compareFlats} compareFlats
+ * @returns ShowMaxPrice component
+ */
 function ShowMaxPrice({flat, compareFlats}) {
   if (flat.name === compareFlats[0].name) {
     if (compareFlats[0].maxprice < compareFlats[1].maxprice) {
@@ -50,6 +64,13 @@ function ShowMaxPrice({flat, compareFlats}) {
   }
 }
 
+/**
+ * This component is used to display the time taken to reach the nearest MRT station.
+ * The lower time will be displayed in green, the higher time will be displayed in red, and the same time will be displayed in yellow.
+ * @param {flat} flat
+ * @param {compareFlats} compareFlats
+ * @returns ShowMRTStationTime component
+ */
 function ShowMRTStationTime({flat, compareFlats}) {
   if (flat.name === compareFlats[0].name) {
     if (compareFlats[0].nearestmrtstation < compareFlats[1].nearestmrtstation) {

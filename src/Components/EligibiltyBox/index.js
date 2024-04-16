@@ -3,6 +3,14 @@ import { Form, InputNumber, Button, Radio } from "antd";
 import React, { useEffect, useState } from "react";
 import { Typography } from "antd";
 
+/**
+ * This component determines the eligibility of the user to apply for a BTO flat.
+ * The user will be asked to input their age, relationship status, monthly income, CPF, and savings.
+ * The user will be shown a recommendation on whether they are eligible to apply for a BTO flat.
+ * If the user is eligible, they will be shown the estimated buying power, downpayment required, and the grants that they are eligible for.
+ * If the user is not eligible, they will be shown a message indicating that they are not eligible to apply for a BTO flat, along with the reason.
+ * @returns EligibilityBox component
+ */
 const EligibilityBox = () => {
   const [age, setAge] = useState("");
   const [married, setMarried] = useState(true);

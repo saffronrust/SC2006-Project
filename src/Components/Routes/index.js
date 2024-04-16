@@ -12,6 +12,11 @@ import SearchResults from "../../Pages/SearchResults";
 import CompareResults from "../../Pages/CompareResults";
 import Reset from "../../Pages/Reset";
 
+/**
+ * This component is used to direct the different pages of the website.
+ * The different pages of the website are displayed based on the URL path.
+ * @returns AppRoutes component
+ */
 function AppRoutes() {
   return (
     <Routes>

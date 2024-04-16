@@ -15,6 +15,15 @@ import { removeCompareResultsFromDatabase } from "../../Utility/Database";
 import { useState, useRef } from "react";
 import { result } from "../SearchBox";
 
+/**
+ * This component is used to display the header of the website.
+ * The header contains the website name, menu items, and the login icon.
+ * The header is displayed at the top of the website.
+ * The header is displayed in all pages of the website.
+ * The user can navigate to different pages of the website by clicking on the menu items.
+ * There is a tour button that will guide the user on how to use the website.
+ * @returns AppHeader component
+ */
 function AppHeader() {
   const navigate = useNavigate();
 

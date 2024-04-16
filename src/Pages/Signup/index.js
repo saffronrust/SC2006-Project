@@ -1,5 +1,9 @@
 import SignupBox from "../../Components/SignupBox";
 
+/**
+ * This component is used to display the signup page.
+ * @returns Signup component
+ */
 function Signup() {
   return (
     <div className="loginbackground">

@@ -38,13 +38,13 @@ The `Pages` folder contains the UI for the website.
 The `Utility` folder contains important functions used in the website.
 
 #### `App.js` & `App.css`
-The meat of the website.
+Displays the main app.
 
 #### `firebase.js`
 Contains the configuration for our Firestore database.
 
 #### `index.js` & `index.css`
-When `npm start` is called, these two files will be called.
+When `npm start` is called, these two files will be called to render the main app.
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]

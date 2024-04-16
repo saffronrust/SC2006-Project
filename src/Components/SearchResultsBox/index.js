@@ -12,6 +12,13 @@ function deletefav(flat) {
     fav.splice(index, 1);
 }
 
+/**
+ * This component is used to display the search results based on the user's chosen filters.
+ * The user can click on the flat name to view more details about the flat.
+ * The user can add the flat to their favourite list by clicking on the heart icon.
+ * The user can view the location of the flat on the map in the Modal component.
+ * @returns SearchResultsBox component
+ */
 function SearchResultsBox() {
 
     const [position, setPosition] = useState('bottom');

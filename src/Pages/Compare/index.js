@@ -1,5 +1,9 @@
 import ComparisonBox from "../../Components/ComparisonBox";
 
+/**
+ * This component is used to display the compare page.
+ * @returns Compare component
+ */
 function Compare() {
     return (
         <div className="mainbackground">

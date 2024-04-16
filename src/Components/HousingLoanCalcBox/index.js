@@ -4,6 +4,12 @@ import { Form, InputNumber, Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { Typography } from "antd";
 
+/**
+ * This component is used to calculate the housing loan based on the user's input.
+ * The user will be able to input the house price, loan amount, annual interest rate, and loan tenure.
+ * The user will be shown the maximum loan amount, monthly installment, total amount repaid, total interest paid, and loan-to-value ratio.
+ * @returns HousingLoanCalcBox component
+ */
 const HousingLoanCalcBox = () => {
   const [housePrice, setHousePrice] = useState(0);
   const [loanAmount, setLoanAmount] = useState(0);

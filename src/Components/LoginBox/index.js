@@ -7,6 +7,15 @@ import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 
+/**
+ * This component is used to display the login form.
+ * The user can login to the website using their email and password.
+ * The user can also login using their Google account.
+ * The user can navigate to the signup page by clicking on the signup link.
+ * The user will be redirected to the user account page if the user is already logged in.
+ * If the user forgot their password, they can click on the forgot password link to reset their password.
+ * @returns LoginBox component
+ */
 function LoginBox() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

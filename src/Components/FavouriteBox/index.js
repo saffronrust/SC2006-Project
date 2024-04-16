@@ -8,6 +8,13 @@ import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { DeleteTwoTone } from '@ant-design/icons';
 
+/**
+ * This component is used to display the favourite houses that the user has selected from <SearchResultsBox /> and <ComparisonResultsBox />.
+ * The user will be shown the name, location, room type, nearest MRT station, MRT station travel time, and the price range of the houses.
+ * The user will also be shown the location of the house on the map.
+ * The user can remove the house from their favourite list by clicking on the delete icon.
+ * @returns FavouriteBox component
+ */
 const FavouriteBox = () => {
 
     const [user, loading] = useAuthState(auth);

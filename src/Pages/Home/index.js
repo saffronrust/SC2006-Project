@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -6,6 +7,13 @@ import { auth, db } from "../../firebase";
 import { query, collection, getDocs, where, deleteDoc } from "firebase/firestore";
 import { Button } from "antd";
 
+/**
+ * This component is used to display the home page.
+ * The user can navigate to the search page by clicking on the "Begin Your Search!" button.
+ * The user will be shown a welcome message on the home page if they are not logged in.
+ * The user will be shown a welcome message with their name on the home page if they are logged in.
+ * @returns Home component
+ */
 function Home() {
 
     const [user, loading] = useAuthState(auth);

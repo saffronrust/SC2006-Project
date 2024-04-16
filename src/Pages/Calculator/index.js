@@ -1,6 +1,9 @@
-import EligibilityBox from "../../Components/EligibiltyBox";
 import HousingLoanCalcBox from "../../Components/HousingLoanCalcBox";
 
+/**
+ * This component is used to display the housing loan calculator page.
+ * @returns Calculator component
+ */
 function Calculator() {
   return (
     <div className="mainbackground">

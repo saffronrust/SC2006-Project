@@ -8,6 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 const result = []
 
+/**
+ * This component is used to search for a BTO based on the user's chosen filters.
+ * The user can search for a BTO based on the maximum price, minimum price, location, and room type.
+ * The user can click on the search button to search for a BTO based on the chosen filters.
+ * The user will be shown an error message if there are no results found based on the chosen filters.
+ * The user will be shown a success message if the search is successful and will be redirected to the search results page.
+ * @returns SearchBox component
+ */
 function SearchBox() {
 
   const [maxprice, setMaxPrice] = useState(0);

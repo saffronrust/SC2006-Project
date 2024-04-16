@@ -5,6 +5,10 @@ import { message } from 'antd';
 import { fav } from '../../Components/SearchResultsBox';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
+/**
+ * This function is used to add the compared flats to the Firebase database.
+ * @param {comparedflats} comparedflats 
+ */
   function addCompareResultsToFirebase(comparedflats) {
     for (let i = 0; i < comparedflats.length; i++) {
       const flat = comparedflats[i];
@@ -24,6 +28,9 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   }
 
+  /**
+   * This function is used to remove all of the compared flats from the Firebase database.
+   */
   async function removeCompareResultsFromDatabase() {
     try {
       const q = query(collection(db, "compareresults"));
@@ -36,6 +43,9 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   }
 
+  /**
+   * This function is used to sign in/register with Google.
+   */
   const signInWithGoogle = async () => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
@@ -57,6 +67,11 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   };
   
+  /**
+   * This function is used to log in with email and password.
+   * @param {email} email 
+   * @param {password} password 
+   */
   const logInWithEmailAndPassword = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -67,6 +82,12 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   };
   
+  /**
+   * This function is used to register with email and password.
+   * @param {name} name 
+   * @param {email} email 
+   * @param {password} password 
+   */
   const registerWithEmailAndPassword = async (name, email, password) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -84,6 +105,10 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   };
 
+  /**
+   * This function is used to send a password reset email.
+   * @param {email} email 
+   */
   const sendPasswordReset = async (email) => {
     try {
       await sendPasswordResetEmail(auth, email);
@@ -94,6 +119,9 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswor
     }
   };
 
+  /**
+   * This function is used to log out the user.
+   */
   const logout = () => {
     message.success('Logout successful!', 2);
     fav.length = 0;

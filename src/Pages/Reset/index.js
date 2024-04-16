@@ -1,5 +1,9 @@
 import ResetBox from "../../Components/ResetBox";
 
+/**
+ * This component is used to display the password reset page.
+ * @returns Reset component
+ */
 function Reset() {
   return (
     <div className="loginbackground">

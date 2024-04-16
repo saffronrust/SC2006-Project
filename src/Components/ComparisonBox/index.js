@@ -7,6 +7,14 @@ import { addCompareResultsToFirebase } from '../../Utility/Database';
 import { useNavigate } from 'react-router-dom';
 import { flatOptions } from '../../FlatData';
 
+/**
+ * This component is used to compare two houses that the user selects.
+ * The user can select two houses from the dropdown list and click on the submit button to compare the two houses.
+ * The user will be redirected to the comparison results page after clicking on the submit button.
+ * The user will be shown an error message if the user selects the same house or if the user selects an invalid house name.
+ * The user will be shown a success message if the user successfully selects two houses and clicks on the submit button.
+ * @returns ComparisonBox component
+ */
 function ComparisonBox() {
 
     const navigate = useNavigate();

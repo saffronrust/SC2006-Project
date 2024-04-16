@@ -7,6 +7,12 @@ import { Button, Form, Input } from "antd";
 import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 
+/**
+ * This component is used to display the reset password form.
+ * The user can reset their password by entering their email address.
+ * An email will be sent to that address with instructions on how to reset the password.
+ * @returns ResetBox component
+ */
 function ResetBox() {
   const [email, setEmail] = useState("");
   const [user] = useAuthState(auth);

@@ -7,6 +7,15 @@ import MapBox from '../MapBox';
 import { ShowMinPrice, ShowMaxPrice, ShowMRTStationTime } from '../../Utility/Compare';
 import FavouriteButton from '../FavouriteButton';
 
+/**
+ * This component is used to display the comparison results of the houses that the user has selected from <ComparisonBox />.
+ * The user will be shown the name, location, room type, nearest MRT station, MRT station travel time, and the price range of the houses.
+ * The user will also be shown the location of the house on the map.
+ * The user will be shown a legend at the right side of the comparison results to indicate which house has the better, worse, or the same statistic.
+ * The user can also add the house to their favourite list by clicking on the heart icon.
+ * The user can view the comparison results of the houses that they have selected.
+ * @returns ComparisonResultBox component
+ */
 function ComparisonResultBox() {
 
     const [compareFlats, setCompareFlats] = useState([]);
