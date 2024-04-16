@@ -17,6 +17,7 @@ In Singapore, buying public housing for the first time can be a daunting task fo
         ├── firebase.js
         ├── index.css
         ├── index.js
+        ├── reportWebVitals.js
 |   ├── .gitignore
 |   ├── README.md
 |   ├── package-lock.json
@@ -38,13 +39,16 @@ The `Pages` folder contains the UI for the website.
 The `Utility` folder contains important functions used in the website.
 
 #### `App.js` & `App.css`
-The meat of the website.
+Displays the main app.
 
 #### `firebase.js`
 Contains the configuration for our Firestore database.
 
 #### `index.js` & `index.css`
-When `npm start` is called, these two files will be called.
+When `npm start` is called, these two files will be called to render the main app.
+
+#### `reportWebVitals.js`
+Necessary for the deployed Vercel app to function.
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
