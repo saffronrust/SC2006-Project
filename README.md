@@ -24,7 +24,7 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 |   ├── package.json
 ```
 #### `Components` folder
-The `Components` folder contains the necessary components needed to make the website function.
+The `Components` folder contains the necessary components needed to make the website function. Each component has its own documentation at the start of the file.
 
 #### `FlatData` folder
 The `FlatData` folder contains flat information for all of the flats in the website.
