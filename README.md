@@ -6,6 +6,7 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 ## Folder Organisation and Guide
 ```
 ├── SimplyStay
+|   ├── Documentation
 |   ├── src
         ├── Components
         ├── FlatData
@@ -23,6 +24,10 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 |   ├── package-lock.json
 |   ├── package.json
 ```
+
+#### `Documentation` folder
+All of the necessary documentation, such as the SRS document and analysis models, can be found here.
+
 #### `Components` folder
 The `Components` folder contains the necessary components needed to make the website function. Each component has its own documentation at the start of the file.
 
