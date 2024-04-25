@@ -7,6 +7,7 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 ```
 ├── SimplyStay
 |   ├── Documentation
+|   ├── public
 |   ├── src
         ├── Components
         ├── FlatData
@@ -25,7 +26,7 @@ In Singapore, buying public housing for the first time can be a daunting task fo
 |   ├── package.json
 ```
 
-#### `Documentation` folder
+### `Documentation` folder
 All of the necessary documentation, such as the SRS document and analysis models, can be found here.
 
 #### `Components` folder
