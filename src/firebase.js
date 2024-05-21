@@ -6,15 +6,16 @@ import { getFirestore } from "firebase/firestore";
 /**
  * This file is used to initialize the Firebase app with the Firebase configuration.
  * It also exports the Firebase authentication and Firestore database objects.
+ * The specific keys have been removed for security reasons
  */
 const firebaseConfig = {
-    apiKey: "AIzaSyAR1UkYZ8gW6iWg00DCfaifqlDxGPOc2dM",
-    authDomain: "simplystay-47876.firebaseapp.com",
-    projectId: "simplystay-47876",
-    storageBucket: "simplystay-47876.appspot.com",
-    messagingSenderId: "1006326958985",
-    appId: "1:1006326958985:web:c626938818ae5a00b12f58",
-    measurementId: "G-276D8ZFB25"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
 };
 
 const app = initializeApp(firebaseConfig);
