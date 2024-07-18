@@ -12,7 +12,18 @@ NOTE: The vercel app is non-stable, meaning that some features such as the regis
 1. Clone the repository
 2. Go to the file directory with command prompt
 3. Type `npm install` to install the dependencies needed for the project
-4. Type `npm start`
+4. Create a `.env` file at the root folder containing the following variables needed for the Firebase configuration:
+```env
+REACT_APP_API_KEY = "YOUR_FIREBASE_API_KEY"
+REACT_APP_AUTH_DOMAIN = "YOUR_FIREBASE_AUTH_DOMAIN"
+REACT_APP_PROJECT_ID = "YOUR_FIREBASE_PROJECT_ID"
+REACT_APP_STORAGE_BUCKET = "YOUR_FIREBASE_STORAGE_BUCKET"
+REACT_APP_MESSAGING_SENDER_ID = "YOUR_FIREBASE_MESSAGING_SENDER_ID"
+REACT_APP_APP_ID = "YOUR_FIREBASE_APP_ID"
+REACT_APP_MEASUREMENT_ID = "YOUR_FIREBASE_MEASUREMENT_ID"
+```
+6. Type `npm start`
+7. Have fun!
 
 ## Tech Stack
 FR(A)N \[Firebase, React (Ant Design UI), Node.js\]
